@@ -1,0 +1,75 @@
+﻿2019-03-21T23:39:59.8641999-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T23:39:59.8682247-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T23:40:00.0397289-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T23:40:00.0397289-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T23:40:00.0397289-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T23:40:13.1141023-07:00;Thread#13;Info;starting test run
+2019-03-21T23:40:13.1210837-07:00;Thread#13;Info;Discovering target: Default
+2019-03-21T23:40:13.1210837-07:00;Thread#13;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#5: Dynamic - 
+#9: Bug: loading animations not hidden if interacting with Checkbox Remove/add before Text Input Enable/disable - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Bug%3a+loading+animations+not+hidden+if+interacting+with+Checkbox+Remove%2fadd+before+Text+Input+Enable%2fdisable
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #9 from normal test queue 
+Thread#0:Scheduler: considering testitem #9 for thread 0
+Thread#0:TestItem#9:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#9:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#9:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #9 for thread 0
+Thread#0:Scheduler: Test #9 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #9/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.5s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (3.1s)
+Thread#0:B:When I click the "Add" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Add") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (3.1s)
+Thread#0:B:When I click the "Enable" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Enable") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (30.3s)
+Thread#0:B:And Confirm text input "enabled"
+Thread#0:T:done: AllSteps.ThenConfirmTextInput("enabled") (0.0s)
+Thread#0:B:When I click the "Disable" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Disable") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (30.3s)
+Thread#0:B:And Confirm text input "disabled"
+Thread#0:T:done: AllSteps.ThenConfirmTextInput("disabled") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #9/0 is finished on thread #0 as Succeeded within 75.519252 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T23:41:29.1788616-07:00;Thread#13;Info;test run finished
+2019-03-21T23:41:29.1798597-07:00;Thread#13;Info;publishing test results
+2019-03-21T23:41:29.2028333-07:00;Thread#13;Info;test results published
+2019-03-21T23:41:29.2028333-07:00;Thread#13;Info;generating reports
+2019-03-21T23:41:29.2117729-07:00;Thread#13;Info;creating 1 report(s)
+2019-03-21T23:41:29.2117729-07:00;Thread#13;Info;generate Report ReportTemplate.cshtml
+2019-03-21T23:41:30.0216084-07:00;Thread#13;Info;reports generated
+Total: 1
+Succeeded: 1
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-21T23:41:30.0236418-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T23:41:30.0236418-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T234000.html'
+2019-03-21T23:41:30.0365778-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T234000.log

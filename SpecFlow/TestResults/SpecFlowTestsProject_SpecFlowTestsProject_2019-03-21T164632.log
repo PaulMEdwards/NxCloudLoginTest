@@ -1,0 +1,63 @@
+﻿2019-03-21T16:46:32.5223482-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T16:46:32.5273350-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T16:46:32.7577189-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T16:46:32.7577189-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T16:46:32.7577189-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T16:46:43.8483785-07:00;Thread#14;Info;starting test run
+2019-03-21T16:46:43.8723144-07:00;Thread#14;Info;Discovering target: Default
+2019-03-21T16:46:43.8723144-07:00;Thread#14;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#10: Alerts - 
+#11: Basic Alert - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Basic+Alert
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #11 from normal test queue 
+Thread#0:Scheduler: considering testitem #11 for thread 0
+Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #11 for thread 0
+Thread#0:Scheduler: Test #11 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #11/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (2.5s)
+Thread#0:B:When I click the "Alert" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Alert") (91.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Alert" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS Alert") (31.2s)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("OK") (9.0s)
+Thread#0:B:And I confirm Result message "You successfuly clicked an alert"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You successfuly c...") (15.5s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #11/0 is finished on thread #0 as Succeeded within 162.0551132 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T16:49:26.6923459-07:00;Thread#14;Info;test run finished
+2019-03-21T16:49:26.6933433-07:00;Thread#14;Info;publishing test results
+2019-03-21T16:49:26.7452045-07:00;Thread#14;Info;test results published
+2019-03-21T16:49:26.7452045-07:00;Thread#14;Info;generating reports
+2019-03-21T16:49:26.7512004-07:00;Thread#14;Info;creating 1 report(s)
+2019-03-21T16:49:26.7521865-07:00;Thread#14;Info;generate Report ReportTemplate.cshtml
+2019-03-21T16:49:27.6517798-07:00;Thread#14;Info;reports generated
+Total: 1
+Succeeded: 1
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-21T16:49:27.6567680-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T16:49:27.6567680-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T164632.html'
+2019-03-21T16:49:27.6667412-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T164632.log

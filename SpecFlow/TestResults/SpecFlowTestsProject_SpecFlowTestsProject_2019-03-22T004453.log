@@ -1,0 +1,66 @@
+﻿2019-03-22T00:44:53.0522246-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-22T00:44:53.0592059-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-22T00:44:53.2118349-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-22T00:44:53.2118349-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-22T00:44:53.2118349-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-22T00:45:02.2715738-07:00;Thread#13;Info;starting test run
+2019-03-22T00:45:02.2765939-07:00;Thread#13;Info;Discovering target: Default
+2019-03-22T00:45:02.2775917-07:00;Thread#13;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#5: Dynamic - 
+#6: Remove and Add checkbox control - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Remove+and+Add+checkbox+control
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #6 from normal test queue 
+Thread#0:Scheduler: considering testitem #6 for thread 0
+Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #6 for thread 0
+Thread#0:Scheduler: Test #6 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #6/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (3.1s)
+Thread#0:B:And I toggle the checkbox
+Thread#0:T:done: AllSteps.GivenICheckTheBox() (0.1s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (3.2s)
+Thread#0:B:And Confirm checkbox removal
+Thread#0:T:done: AllSteps.ThenConfirmCheckboxRemoval() (3.1s)
+Thread#0:B:When I click the "Add" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Add") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (0.3s)
+Thread#0:B:And Confirm checkbox added
+Thread#0:T:error: Expected d.Count to be 1, but found 0.
+Cancelling because configured number of failures reached
+Thread#0: Test #6/0 is finished on thread #0 as Failed within 19.8911612 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-22T00:45:22.6325130-07:00;Thread#13;Info;test run finished
+2019-03-22T00:45:22.6325130-07:00;Thread#13;Info;publishing test results
+2019-03-22T00:45:22.6534534-07:00;Thread#13;Info;test results published
+2019-03-22T00:45:22.6544480-07:00;Thread#13;Info;generating reports
+2019-03-22T00:45:22.6604171-07:00;Thread#13;Info;creating 1 report(s)
+2019-03-22T00:45:22.6604171-07:00;Thread#13;Info;generate Report ReportTemplate.cshtml
+2019-03-22T00:45:23.4463047-07:00;Thread#13;Info;reports generated
+Total: 1
+Succeeded: 0
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 1
+2019-03-22T00:45:23.4493032-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-22T00:45:23.4493032-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-22T004453.html'
+2019-03-22T00:45:23.4582717-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-22T004453.log

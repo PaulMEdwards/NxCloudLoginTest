@@ -1,0 +1,113 @@
+﻿2019-03-15T10:51:47.9765363-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-15T10:51:47.9825199-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-15T10:51:48.2049257-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-15T10:51:48.2049257-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-15T10:51:48.2049257-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-15T10:51:59.3564283-07:00;Thread#14;Info;starting test run
+2019-03-15T10:51:59.3723848-07:00;Thread#14;Info;Discovering target: Default
+2019-03-15T10:51:59.3723848-07:00;Thread#14;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#10: Alerts - 
+#11: Basic Alert - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Basic+Alert
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #11 from normal test queue 
+Thread#0:Scheduler: considering testitem #11 for thread 0
+Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #11 for thread 0
+Thread#0:Scheduler: Test #11 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #11/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (4.9s)
+Thread#0:B:When I click the "Alert" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Alert") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Alert" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You successfuly clicked an alert"
+Thread#0:T:skipped because of previous errors
+Thread#0:TestItem#11:Scheduler: reschedule tests for testitem #11
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: dequeuing a rescheduled testitem: #11
+Thread#0:Scheduler: considering testitem #11 for thread 0
+Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #11 for thread 0
+Thread#0:Scheduler: Test #11 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 1
+Thread#0: Test #11/0 is finished on thread #0 as Failed within 77.4537903 seconds
+Thread#0: Test #11/1 is started on thread #0
+Thread#0:T:warning: The previous ScenarioContext was not disposed.
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (9.0s)
+Thread#0:B:When I click the "Alert" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Alert") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Alert" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You successfuly clicked an alert"
+Thread#0:T:skipped because of previous errors
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: dequeuing a rescheduled testitem: #11
+Thread#0:Scheduler: considering testitem #11 for thread 0
+Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #11 for thread 0
+Thread#0:Scheduler: Test #11 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 2
+Thread#0: Test #11/1 is finished on thread #0 as Failed within 22.0172002 seconds
+Thread#0: Test #11/2 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (6.0s)
+Thread#0:B:When I click the "Alert" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Alert") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Alert" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You successfuly clicked an alert"
+Thread#0:T:skipped because of previous errors
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #11/2 is finished on thread #0 as Failed within 17.0212156 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-15T10:53:56.7811578-07:00;Thread#14;Info;test run finished
+2019-03-15T10:53:56.7821545-07:00;Thread#14;Info;publishing test results
+2019-03-15T10:53:56.8300269-07:00;Thread#14;Info;test results published
+2019-03-15T10:53:56.8300269-07:00;Thread#14;Info;generating reports
+2019-03-15T10:53:56.8380063-07:00;Thread#14;Info;creating 1 report(s)
+2019-03-15T10:53:56.8390039-07:00;Thread#14;Info;generate Report ReportTemplate.cshtml
+2019-03-15T10:53:57.7834772-07:00;Thread#14;Info;reports generated
+Total: 1 (test executions: 3)
+Succeeded: 0
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 1
+2019-03-15T10:53:57.7884636-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-15T10:53:57.7884636-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-15T105148.html'
+2019-03-15T10:53:57.7984374-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-15T105148.log

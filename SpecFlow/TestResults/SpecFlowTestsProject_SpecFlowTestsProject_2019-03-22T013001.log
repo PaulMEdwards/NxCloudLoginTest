@@ -1,0 +1,391 @@
+﻿2019-03-22T01:30:01.7007273-07:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-03-22T01:30:01.7077071-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-22T01:30:01.7077071-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-22T01:30:01.8583046-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-22T01:30:01.8583046-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-22T01:30:01.8583046-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-22T01:30:06.9173632-07:00;Thread#15;Info;starting test run
+2019-03-22T01:30:06.9233492-07:00;Thread#15;Info;Discovering target: Default
+2019-03-22T01:30:06.9233492-07:00;Thread#15;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#3: Geolocation - 
+#5: Dynamic - 
+#10: Alerts - 
+#17: Login Form - 
+#4: Geolocate authorized by user - TestAssembly:SpecFlowTestsProject/Feature:Geolocation/Scenario:Geolocate+authorized+by+user
+#6: Remove and Add checkbox control - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Remove+and+Add+checkbox+control
+#7: Enable and Disable text input control - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Enable+and+Disable+text+input+control
+#8: Bug: lingering checkbox DIV(s) on multiple Remove/add operations - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Bug%3a+lingering+checkbox+DIV(s)+on+multiple+Remove%2fadd+operations
+#9: Bug: loading animations not hidden if interacting with Checkbox Remove/add before Text Input Enable/disable - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Bug%3a+loading+animations+not+hidden+if+interacting+with+Checkbox+Remove%2fadd+before+Text+Input+Enable%2fdisable
+#11: Basic Alert - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Basic+Alert
+#12: Confirm OK - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Confirm+OK
+#13: Confirm Cancel - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Confirm+Cancel
+#14: Prompt, "" - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Prompt%2c+%22%22
+#15: Prompt, TestMonkey - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Prompt%2c+TestMonkey
+#16: Prompt, Infinite Monkeys on Infinite Keyboards - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Prompt%2c+Infinite+Monkeys+on+Infinite+Keyboards
+#18: Login with valid credentials - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Login+with+valid+credentials
+#19: Attempt login with invalid credentials, Variant 0 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+0
+#20: Attempt login with invalid credentials, Variant 1 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+1
+#21: Attempt login with invalid credentials, Variant 2 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+2
+#22: Attempt login with invalid credentials, Variant 3 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+3
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #4 from normal test queue 
+Thread#0:Scheduler: considering testitem #4 for thread 0
+Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #4 for thread 0
+Thread#0:Scheduler: Test #4 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #4/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the Geolocation page
+Thread#0:T:done: AllSteps.GivenIVisitTheGeolocationPage() (1.6s)
+Thread#0:B:When I click the Where am I? button
+Thread#0:T:done: AllSteps.WhenIClickTheWhereAmIButton() (0.1s)
+Thread#0:B:Then User's Lat/Long coordinates are displayed and viewable on Google Maps
+Thread#0:T:done: AllSteps.ThenUserSLatLongCoordinatesAreDisplayed() (2.7s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #6 from normal test queue 
+Thread#0:Scheduler: considering testitem #6 for thread 0
+Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #6 for thread 0
+Thread#0:Scheduler: Test #6 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 11.370333 seconds
+Thread#0: Test #6/0 is started on thread #0
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.5s)
+Thread#0:B:And I toggle the checkbox
+Thread#0:T:done: AllSteps.GivenICheckTheBox() (0.1s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.6s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (2.6s)
+Thread#0:B:And Confirm checkbox removal
+Thread#0:T:done: AllSteps.ThenConfirmCheckboxRemoval() (3.1s)
+Thread#0:B:When I click the "Add" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Add") (0.6s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (0.3s)
+Thread#0:B:And Confirm checkbox added
+Thread#0:T:done: AllSteps.ThenConfirmCheckboxAdded() (2.6s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #7 from normal test queue 
+Thread#0:Scheduler: considering testitem #7 for thread 0
+Thread#0:TestItem#7:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#7:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#7:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #7 for thread 0
+Thread#0:Scheduler: Test #7 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #6/0 is finished on thread #0 as Succeeded within 17.6823583 seconds
+Thread#0: Test #7/0 is started on thread #0
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.4s)
+Thread#0:B:When I click the "Enable" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Enable") (0.6s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (2.6s)
+Thread#0:B:And Confirm text input "enabled"
+Thread#0:T:done: AllSteps.ThenConfirmTextInput("enabled") (1.0s)
+Thread#0:B:And I input "random" text
+Thread#0:T:done: AllSteps.ThenIInputText("random") (0.1s)
+Thread#0:B:When I click the "Disable" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Disable") (0.6s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (0.3s)
+Thread#0:B:And Confirm text input "disabled"
+Thread#0:T:done: AllSteps.ThenConfirmTextInput("disabled") (3.1s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #8 from normal test queue 
+Thread#0:Scheduler: considering testitem #8 for thread 0
+Thread#0:TestItem#8:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#8:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#8:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #8 for thread 0
+Thread#-1:Scheduler: Test #8 is scheduled for thread
+Thread#-1: Test #8/0 is started on thread #-1
+Thread#-1: Test #8/0 is finished on thread #-1 as Ignored within 0 seconds
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #9 from normal test queue 
+Thread#0:Scheduler: considering testitem #9 for thread 0
+Thread#0:TestItem#9:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#9:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#9:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #9 for thread 0
+Thread#-1:Scheduler: Test #9 is scheduled for thread
+Thread#-1: Test #9/0 is started on thread #-1
+Thread#-1: Test #9/0 is finished on thread #-1 as Ignored within 0 seconds
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #11 from normal test queue 
+Thread#0:Scheduler: considering testitem #11 for thread 0
+Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #11 for thread 0
+Thread#0:Scheduler: Test #11 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #7/0 is finished on thread #0 as Succeeded within 15.9794218 seconds
+Thread#0: Test #11/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (2.1s)
+Thread#0:B:When I click the "Alert" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Alert") (0.1s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Alert" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS Alert") (0.0s)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("OK") (0.0s)
+Thread#0:B:And I confirm Result message "You successfuly clicked an alert"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You successfuly c...") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #12 from normal test queue 
+Thread#0:Scheduler: considering testitem #12 for thread 0
+Thread#0:TestItem#12:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#12:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#12:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #12 for thread 0
+Thread#0:Scheduler: Test #12 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #11/0 is finished on thread #0 as Succeeded within 8.4699795 seconds
+Thread#0: Test #12/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (3.6s)
+Thread#0:B:When I click the "Confirm" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Confirm") (0.1s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Confirm" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS Confirm") (0.0s)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("OK") (0.0s)
+Thread#0:B:And I confirm Result message "You clicked: Ok"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You clicked: Ok") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #13 from normal test queue 
+Thread#0:Scheduler: considering testitem #13 for thread 0
+Thread#0:TestItem#13:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#13:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#13:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #13 for thread 0
+Thread#0:Scheduler: Test #13 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #12/0 is finished on thread #0 as Succeeded within 10.0320942 seconds
+Thread#0: Test #13/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (1.4s)
+Thread#0:B:When I click the "Confirm" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Confirm") (0.1s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Confirm" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS Confirm") (0.0s)
+Thread#0:B:And I act upon alert by clicking "Cancel" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("Cancel") (0.0s)
+Thread#0:B:And I confirm Result message "You clicked: Cancel"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You clicked: Cancel") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #14 from normal test queue 
+Thread#0:Scheduler: considering testitem #14 for thread 0
+Thread#0:TestItem#14:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#14:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#14:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #14 for thread 0
+Thread#0:Scheduler: Test #14 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #13/0 is finished on thread #0 as Succeeded within 7.8781145 seconds
+Thread#0: Test #14/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (1.3s)
+Thread#0:B:When I click the "Prompt" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Prompt") (0.1s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS prompt" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS prompt") (0.0s)
+Thread#0:B:And I act upon alert by inputting text """"
+Thread#0:T:done: AllSteps.ThenIActUponAlertByInputtingText("""") (0.0s)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("OK") (0.0s)
+Thread#0:B:And I confirm Result message "You entered:"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You entered:") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #15 from normal test queue 
+Thread#0:Scheduler: considering testitem #15 for thread 0
+Thread#0:TestItem#15:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#15:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#15:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #15 for thread 0
+Thread#0:Scheduler: Test #15 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #14/0 is finished on thread #0 as Succeeded within 7.758827 seconds
+Thread#0: Test #15/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (1.5s)
+Thread#0:B:When I click the "Prompt" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Prompt") (0.1s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS prompt" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS prompt") (0.0s)
+Thread#0:B:And I act upon alert by inputting text "TestMonkey"
+Thread#0:T:done: AllSteps.ThenIActUponAlertByInputtingText("TestMonkey") (0.0s)
+Thread#0:B:And I act upon alert by clicking "Cancel" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("Cancel") (0.0s)
+Thread#0:B:And I confirm Result message "You entered: null"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You entered: null") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #16 from normal test queue 
+Thread#0:Scheduler: considering testitem #16 for thread 0
+Thread#0:TestItem#16:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#16:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#16:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #16 for thread 0
+Thread#0:Scheduler: Test #16 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #15/0 is finished on thread #0 as Succeeded within 7.8639254 seconds
+Thread#0: Test #16/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (2.6s)
+Thread#0:B:When I click the "Prompt" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Prompt") (0.1s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS prompt" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS prompt") (0.0s)
+Thread#0:B:And I act upon alert by inputting text "Infinite Monkeys on Infinite Keyboards"
+Thread#0:T:done: AllSteps.ThenIActUponAlertByInputtingText("Infinite Monkeys ...") (0.0s)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("OK") (0.0s)
+Thread#0:B:And I confirm Result message "You entered: Infinite Monkeys on Infinite Keyboards"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You entered: Infi...") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #18 from normal test queue 
+Thread#0:Scheduler: considering testitem #18 for thread 0
+Thread#0:TestItem#18:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#18:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#18:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #18 for thread 0
+Thread#0:Scheduler: Test #18 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #16/0 is finished on thread #0 as Succeeded within 8.9881245 seconds
+Thread#0: Test #18/0 is started on thread #0
+Thread#0:B:Given I visit the login form
+Thread#0:T:done: AllSteps.GivenIVisitTheLoginForm() (2.8s)
+Thread#0:B:And I input "tomsmith" as username and "SuperSecretPassword!" as password
+Thread#0:T:done: AllSteps.GivenIInputAsUsernameAndAsPassword("tomsmith", "SuperSecretPassword!") (0.2s)
+Thread#0:B:When I click the Login button
+Thread#0:T:done: AllSteps.WhenIClickTheLoginButton() (0.4s)
+Thread#0:B:Then the Secure Area page should load without error
+Thread#0:T:done: AllSteps.ThenTheSecureAreaPageShouldLoadWithoutError() (0.0s)
+Thread#0:B:And the user should see "You logged into a secure area!" indicating "success"
+Thread#0:T:done: AllSteps.ThenTheUserShouldSeeIndicating("You logged into a...", "success") (0.0s)
+Thread#0:B:And the user can logout and return to the login form
+Thread#0:T:done: AllSteps.ThenTheUserCanLogoutAndReturnToTheLoginForm() (0.4s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #19 from normal test queue 
+Thread#0:Scheduler: considering testitem #19 for thread 0
+Thread#0:TestItem#19:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#19:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#19:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #19 for thread 0
+Thread#0:Scheduler: Test #19 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #18/0 is finished on thread #0 as Succeeded within 10.131927 seconds
+Thread#0: Test #19/0 is started on thread #0
+Thread#0:B:Given I visit the login form
+Thread#0:T:done: AllSteps.GivenIVisitTheLoginForm() (2.0s)
+Thread#0:B:And I input "garbage" as username and "SuperSecretPassword!" as password
+Thread#0:T:done: AllSteps.GivenIInputAsUsernameAndAsPassword("garbage", "SuperSecretPassword!") (0.2s)
+Thread#0:B:When I click the Login button
+Thread#0:T:done: AllSteps.WhenIClickTheLoginButton() (0.4s)
+Thread#0:B:Then the user should see "Your username is invalid!" indicating "error"
+Thread#0:T:done: AllSteps.ThenTheUserShouldSeeIndicating("Your username is ...", "error") (0.1s)
+Thread#0:B:And the Secure Area page should NOT load
+Thread#0:T:done: AllSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #20 from normal test queue 
+Thread#0:Scheduler: considering testitem #20 for thread 0
+Thread#0:TestItem#20:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#20:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#20:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #20 for thread 0
+Thread#0:Scheduler: Test #20 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #19/0 is finished on thread #0 as Succeeded within 8.8833156 seconds
+Thread#0: Test #20/0 is started on thread #0
+Thread#0:B:Given I visit the login form
+Thread#0:T:done: AllSteps.GivenIVisitTheLoginForm() (2.2s)
+Thread#0:B:And I input "Null" as username and "SuperSecretPassword!" as password
+Thread#0:T:done: AllSteps.GivenIInputAsUsernameAndAsPassword("Null", "SuperSecretPassword!") (0.2s)
+Thread#0:B:When I click the Login button
+Thread#0:T:done: AllSteps.WhenIClickTheLoginButton() (0.4s)
+Thread#0:B:Then the user should see "Your username is invalid!" indicating "error"
+Thread#0:T:done: AllSteps.ThenTheUserShouldSeeIndicating("Your username is ...", "error") (0.1s)
+Thread#0:B:And the Secure Area page should NOT load
+Thread#0:T:done: AllSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #21 from normal test queue 
+Thread#0:Scheduler: considering testitem #21 for thread 0
+Thread#0:TestItem#21:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#21:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#21:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #21 for thread 0
+Thread#0:Scheduler: Test #21 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #20/0 is finished on thread #0 as Succeeded within 9.0480005 seconds
+Thread#0: Test #21/0 is started on thread #0
+Thread#0:B:Given I visit the login form
+Thread#0:T:done: AllSteps.GivenIVisitTheLoginForm() (2.0s)
+Thread#0:B:And I input "tomsmith" as username and "garbage" as password
+Thread#0:T:done: AllSteps.GivenIInputAsUsernameAndAsPassword("tomsmith", "garbage") (0.2s)
+Thread#0:B:When I click the Login button
+Thread#0:T:done: AllSteps.WhenIClickTheLoginButton() (0.4s)
+Thread#0:B:Then the user should see "Your password is invalid!" indicating "error"
+Thread#0:T:done: AllSteps.ThenTheUserShouldSeeIndicating("Your password is ...", "error") (0.1s)
+Thread#0:B:And the Secure Area page should NOT load
+Thread#0:T:done: AllSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #22 from normal test queue 
+Thread#0:Scheduler: considering testitem #22 for thread 0
+Thread#0:TestItem#22:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#22:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#22:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #22 for thread 0
+Thread#0:Scheduler: Test #22 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #21/0 is finished on thread #0 as Succeeded within 8.8645561 seconds
+Thread#0: Test #22/0 is started on thread #0
+Thread#0:B:Given I visit the login form
+Thread#0:T:done: AllSteps.GivenIVisitTheLoginForm() (1.5s)
+Thread#0:B:And I input "tomsmith" as username and "Null" as password
+Thread#0:T:done: AllSteps.GivenIInputAsUsernameAndAsPassword("tomsmith", "Null") (0.1s)
+Thread#0:B:When I click the Login button
+Thread#0:T:done: AllSteps.WhenIClickTheLoginButton() (0.4s)
+Thread#0:B:Then the user should see "Your password is invalid!" indicating "error"
+Thread#0:T:done: AllSteps.ThenTheUserShouldSeeIndicating("Your password is ...", "error") (0.1s)
+Thread#0:B:And the Secure Area page should NOT load
+Thread#0:T:done: AllSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #22/0 is finished on thread #0 as Succeeded within 8.3404142 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-22T01:32:28.4201540-07:00;Thread#15;Info;test run finished
+2019-03-22T01:32:28.4211513-07:00;Thread#15;Info;publishing test results
+2019-03-22T01:32:28.4460852-07:00;Thread#15;Info;test results published
+2019-03-22T01:32:28.4470826-07:00;Thread#15;Info;generating reports
+2019-03-22T01:32:28.4530999-07:00;Thread#15;Info;creating 1 report(s)
+2019-03-22T01:32:28.4540799-07:00;Thread#15;Info;generate Report ReportTemplate.cshtml
+2019-03-22T01:32:29.1960792-07:00;Thread#15;Info;reports generated
+Total: 16
+Succeeded: 14
+Ignored: 2
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-22T01:32:29.1990716-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-22T01:32:29.1990716-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-22T013001.html'
+2019-03-22T01:32:29.2080471-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-22T013001.log

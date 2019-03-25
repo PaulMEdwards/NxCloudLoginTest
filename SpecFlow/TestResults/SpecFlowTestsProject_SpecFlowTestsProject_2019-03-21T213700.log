@@ -1,0 +1,59 @@
+﻿2019-03-21T21:37:00.2738899-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T21:37:00.2798747-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T21:37:00.5541397-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T21:37:00.5551368-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T21:37:00.5551368-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T21:37:09.6581473-07:00;Thread#14;Info;starting test run
+2019-03-21T21:37:09.6751041-07:00;Thread#14;Info;Discovering target: Default
+2019-03-21T21:37:09.6751041-07:00;Thread#14;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#3: Geolocation - 
+#4: Geolocate authorized by user - TestAssembly:SpecFlowTestsProject/Feature:Geolocation/Scenario:Geolocate+authorized+by+user
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #4 from normal test queue 
+Thread#0:Scheduler: considering testitem #4 for thread 0
+Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #4 for thread 0
+Thread#0:Scheduler: Test #4 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #4/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the Geolocation page
+Thread#0:T:done: AllSteps.GivenIVisitTheGeolocationPage() (2.8s)
+Thread#0:B:When I click the Where am I? button
+Thread#0:T:done: AllSteps.WhenIClickTheWhereAmIButton() (0.1s)
+Thread#0:B:Then User's Lat/Long coordinates are displayed and viewable on Google Maps
+Thread#0:T:done: AllSteps.ThenUserSLatLongCoordinatesAreDisplayed() (103.5s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 115.6692906 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T21:39:06.1248226-07:00;Thread#14;Info;test run finished
+2019-03-21T21:39:06.1248226-07:00;Thread#14;Info;publishing test results
+2019-03-21T21:39:06.1856579-07:00;Thread#14;Info;test results published
+2019-03-21T21:39:06.1856579-07:00;Thread#14;Info;generating reports
+2019-03-21T21:39:06.1926822-07:00;Thread#14;Info;creating 1 report(s)
+2019-03-21T21:39:06.1926822-07:00;Thread#14;Info;generate Report ReportTemplate.cshtml
+2019-03-21T21:39:07.1221529-07:00;Thread#14;Info;reports generated
+Total: 1
+Succeeded: 1
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-21T21:39:07.1271410-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T21:39:07.1271410-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T213700.html'
+2019-03-21T21:39:07.1331251-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T213700.log

@@ -1,0 +1,228 @@
+﻿2019-03-25T04:12:19.2583606-07:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-03-25T04:12:19.2643423-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-25T04:12:19.2643423-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\Source\Repos\NxCloudLoginTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-25T04:12:19.4159010-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-25T04:12:19.4159010-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\Source\Repos\NxCloudLoginTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-25T04:12:19.4159010-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-25T04:12:28.4861506-07:00;Thread#15;Info;starting test run
+2019-03-25T04:12:28.4951258-07:00;Thread#15;Info;Discovering target: Default
+2019-03-25T04:12:28.4951258-07:00;Thread#15;Info;Discovering tests from assembly: C:\Users\paul\Source\Repos\NxCloudLoginTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#3: Login Form - 
+#4: Login with valid credentials - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Login+with+valid+credentials
+#5: Attempt login with invalid credentials, Variant 0 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+0
+#6: Attempt login with invalid credentials, Variant 1 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+1
+#7: Attempt login with invalid credentials, Variant 2 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+2
+#8: Attempt login with invalid credentials, Variant 3 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+3
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #4 from normal test queue 
+Thread#0:Scheduler: considering testitem #4 for thread 0
+Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #4 for thread 0
+Thread#0:Scheduler: Test #4 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #4/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the NxVMS landing page
+Thread#0:T:Severe Browser Errors enountered:
+Thread#0:T:3/25/2019 11:12:34 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:34 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:34 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:34 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:34 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:34 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:36 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:12:36 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:12:36 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:12:36 AM: Severe: https://nxvms.com/ - Refused to load the image 'https://stats.g.doubleclick.net/r/collect?v=1&aip=1&t=dc&_r=3&tid=UA-51046510-4&cid=341468242.1553512356&jid=541648440&_gid=2113701447.1553512356&gjid=1203311196&_v=j73&z=2004672738' because it violates the following Content Security Policy directive: "img-src 'self' blob: data: https://relay.vmsproxy.com https://relay-fr.vmsproxy.com https://relay-la.vmsproxy.com https://relay-ny.vmsproxy.com https://relay-sy.vmsproxy.com https://*.relay.vmsproxy.com https://*.relay-fr.vmsproxy.com https://*.relay-la.vmsproxy.com https://*.relay-ny.vmsproxy.com https://*.relay-sy.vmsproxy.com https://nxcloud-prod-integrations-static.s3.amazonaws.com  https://*.google-analytics.com https://*.hotjar.com".
+Thread#0:T:3/25/2019 11:12:37 AM: Severe: https://sjs.bizographics.com/insight.min.js 20 Refused to load the script 'https://px.ads.linkedin.com/collect/?time=1553512357339&pid=198508&url=https%3A%2F%2Fnxvms.com%2F&fmt=js&s=1' because it violates the following Content Security Policy directive: "script-src 'self' blob: 'unsafe-inline' 'unsafe-eval' https://*.hotjar.com https://*.google-analytics.com https://www.googletagmanager.com https://sjs.bizographics.com". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+Thread#0:T:done: LoginSteps.GivenIVisitTheNxVMSpage() (6.0s)
+Thread#0:B:And I access the Log In form
+Thread#0:T:done: LoginSteps.GivenIAccessTheLogInForm() (0.1s)
+Thread#0:B:And I input "pauledwards@gmail.com" as username and "AQpuQ!Qp5Dt6Q1wn" as password
+Thread#0:T:done: LoginSteps.GivenIInputAsUsernameAndAsPassword("pauledwards@gmail...", "AQpuQ!Qp5Dt6Q1wn") (0.4s)
+Thread#0:B:And I set the remember checkbox to "true"
+Thread#0:T:done: LoginSteps.GivenISetTheRememberCheckboxTo("true") (0.0s)
+Thread#0:B:When I click the Log In button
+Thread#0:T:done: LoginSteps.WhenIClickTheLoginButton() (0.1s)
+Thread#0:B:Then the Systems page should load without error
+Thread#0:T:Severe Browser Errors enountered:
+Thread#0:T:3/25/2019 11:12:40 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:40 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:40 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:40 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:40 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:40 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:40 AM: Severe: https://sjs.bizographics.com/insight.min.js 20 Refused to load the script 'https://px.ads.linkedin.com/collect/?time=1553512360236&pid=198508&url=https%3A%2F%2Fnxvms.com%2Fsystems&fmt=js&s=1' because it violates the following Content Security Policy directive: "script-src 'self' blob: 'unsafe-inline' 'unsafe-eval' https://*.hotjar.com https://*.google-analytics.com https://www.googletagmanager.com https://sjs.bizographics.com". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+Thread#0:T:done: LoginSteps.ThenTheSystemsPageShouldLoadWithoutError() (2.6s)
+Thread#0:B:And the user can logout and return to the landing page
+Thread#0:T:done: LoginSteps.ThenTheUserCanLogoutAndReturnToTheLandingPage() (0.2s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #5 from normal test queue 
+Thread#0:Scheduler: considering testitem #5 for thread 0
+Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #5 for thread 0
+Thread#0:Scheduler: Test #5 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 18.7674491 seconds
+Thread#0: Test #5/0 is started on thread #0
+Thread#0:B:Given I visit the NxVMS landing page
+Thread#0:T:Severe Browser Errors enountered:
+Thread#0:T:3/25/2019 11:12:57 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:57 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:57 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:57 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:57 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:58 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:12:59 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:12:59 AM: Severe: https://nxvms.com/ - Refused to load the image 'https://stats.g.doubleclick.net/r/collect?v=1&aip=1&t=dc&_r=3&tid=UA-51046510-4&cid=289246675.1553512380&jid=335454223&_gid=891903817.1553512380&gjid=195171940&_v=j73&z=1758837911' because it violates the following Content Security Policy directive: "img-src 'self' blob: data: https://relay.vmsproxy.com https://relay-fr.vmsproxy.com https://relay-la.vmsproxy.com https://relay-ny.vmsproxy.com https://relay-sy.vmsproxy.com https://*.relay.vmsproxy.com https://*.relay-fr.vmsproxy.com https://*.relay-la.vmsproxy.com https://*.relay-ny.vmsproxy.com https://*.relay-sy.vmsproxy.com https://nxcloud-prod-integrations-static.s3.amazonaws.com  https://*.google-analytics.com https://*.hotjar.com".
+Thread#0:T:3/25/2019 11:12:59 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:12:59 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:13:00 AM: Severe: https://sjs.bizographics.com/insight.min.js 20 Refused to load the script 'https://px.ads.linkedin.com/collect/?time=1553512380712&pid=198508&url=https%3A%2F%2Fnxvms.com%2F&fmt=js&s=1' because it violates the following Content Security Policy directive: "script-src 'self' blob: 'unsafe-inline' 'unsafe-eval' https://*.hotjar.com https://*.google-analytics.com https://www.googletagmanager.com https://sjs.bizographics.com". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+Thread#0:T:done: LoginSteps.GivenIVisitTheNxVMSpage() (11.4s)
+Thread#0:B:And I access the Log In form
+Thread#0:T:done: LoginSteps.GivenIAccessTheLogInForm() (0.1s)
+Thread#0:B:And I input "garbage" as username and "BlahThisShouldntWork" as password
+Thread#0:T:done: LoginSteps.GivenIInputAsUsernameAndAsPassword("garbage", "BlahThisShouldntWork") (0.3s)
+Thread#0:B:When I click the Log In button
+Thread#0:T:done: LoginSteps.WhenIClickTheLoginButton() (0.1s)
+Thread#0:B:Then the Systems page should NOT load
+Thread#0:T:done: LoginSteps.ThenTheSystemsPageShouldNOTLoad() (10.3s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #6 from normal test queue 
+Thread#0:Scheduler: considering testitem #6 for thread 0
+Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #6 for thread 0
+Thread#0:Scheduler: Test #6 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #5/0 is finished on thread #0 as Succeeded within 28.4150097 seconds
+Thread#0: Test #6/0 is started on thread #0
+Thread#0:B:Given I visit the NxVMS landing page
+Thread#0:T:Severe Browser Errors enountered:
+Thread#0:T:3/25/2019 11:13:19 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:19 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:19 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:19 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:20 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:20 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:21 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:13:21 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:13:21 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:13:21 AM: Severe: https://nxvms.com/ - Refused to load the image 'https://stats.g.doubleclick.net/r/collect?v=1&aip=1&t=dc&_r=3&tid=UA-51046510-4&cid=2095550603.1553512402&jid=1142416468&_gid=2085887942.1553512402&gjid=1381734423&_v=j73&z=1579625962' because it violates the following Content Security Policy directive: "img-src 'self' blob: data: https://relay.vmsproxy.com https://relay-fr.vmsproxy.com https://relay-la.vmsproxy.com https://relay-ny.vmsproxy.com https://relay-sy.vmsproxy.com https://*.relay.vmsproxy.com https://*.relay-fr.vmsproxy.com https://*.relay-la.vmsproxy.com https://*.relay-ny.vmsproxy.com https://*.relay-sy.vmsproxy.com https://nxcloud-prod-integrations-static.s3.amazonaws.com  https://*.google-analytics.com https://*.hotjar.com".
+Thread#0:T:3/25/2019 11:13:22 AM: Severe: https://sjs.bizographics.com/insight.min.js 20 Refused to load the script 'https://px.ads.linkedin.com/collect/?time=1553512402783&pid=198508&url=https%3A%2F%2Fnxvms.com%2F&fmt=js&s=1' because it violates the following Content Security Policy directive: "script-src 'self' blob: 'unsafe-inline' 'unsafe-eval' https://*.hotjar.com https://*.google-analytics.com https://www.googletagmanager.com https://sjs.bizographics.com". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+Thread#0:T:done: LoginSteps.GivenIVisitTheNxVMSpage() (5.0s)
+Thread#0:B:And I access the Log In form
+Thread#0:T:done: LoginSteps.GivenIAccessTheLogInForm() (0.1s)
+Thread#0:B:And I input "Null" as username and "BlahThisWontWork" as password
+Thread#0:T:done: LoginSteps.GivenIInputAsUsernameAndAsPassword("Null", "BlahThisWontWork") (0.2s)
+Thread#0:B:When I click the Log In button
+Thread#0:T:done: LoginSteps.WhenIClickTheLoginButton() (0.1s)
+Thread#0:B:Then the Systems page should NOT load
+Thread#0:T:done: LoginSteps.ThenTheSystemsPageShouldNOTLoad() (10.2s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #7 from normal test queue 
+Thread#0:Scheduler: considering testitem #7 for thread 0
+Thread#0:TestItem#7:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#7:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#7:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #7 for thread 0
+Thread#0:Scheduler: Test #7 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #6/0 is finished on thread #0 as Succeeded within 21.9882833 seconds
+Thread#0: Test #7/0 is started on thread #0
+Thread#0:B:Given I visit the NxVMS landing page
+Thread#0:T:Severe Browser Errors enountered:
+Thread#0:T:3/25/2019 11:13:41 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:41 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:41 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:41 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:41 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:42 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:13:43 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:13:43 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:13:43 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:13:43 AM: Severe: https://nxvms.com/ - Refused to load the image 'https://stats.g.doubleclick.net/r/collect?v=1&aip=1&t=dc&_r=3&tid=UA-51046510-4&cid=395437706.1553512424&jid=208002779&_gid=1139575110.1553512424&gjid=223986776&_v=j73&z=1919282858' because it violates the following Content Security Policy directive: "img-src 'self' blob: data: https://relay.vmsproxy.com https://relay-fr.vmsproxy.com https://relay-la.vmsproxy.com https://relay-ny.vmsproxy.com https://relay-sy.vmsproxy.com https://*.relay.vmsproxy.com https://*.relay-fr.vmsproxy.com https://*.relay-la.vmsproxy.com https://*.relay-ny.vmsproxy.com https://*.relay-sy.vmsproxy.com https://nxcloud-prod-integrations-static.s3.amazonaws.com  https://*.google-analytics.com https://*.hotjar.com".
+Thread#0:T:3/25/2019 11:13:43 AM: Severe: https://sjs.bizographics.com/insight.min.js 20 Refused to load the script 'https://px.ads.linkedin.com/collect/?time=1553512423902&pid=198508&url=https%3A%2F%2Fnxvms.com%2F&fmt=js&s=1' because it violates the following Content Security Policy directive: "script-src 'self' blob: 'unsafe-inline' 'unsafe-eval' https://*.hotjar.com https://*.google-analytics.com https://www.googletagmanager.com https://sjs.bizographics.com". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+Thread#0:T:done: LoginSteps.GivenIVisitTheNxVMSpage() (4.2s)
+Thread#0:B:And I access the Log In form
+Thread#0:T:done: LoginSteps.GivenIAccessTheLogInForm() (0.1s)
+Thread#0:B:And I input "pauledwards@gmail.com" as username and "garbage" as password
+Thread#0:T:done: LoginSteps.GivenIInputAsUsernameAndAsPassword("pauledwards@gmail...", "garbage") (0.3s)
+Thread#0:B:When I click the Log In button
+Thread#0:T:done: LoginSteps.WhenIClickTheLoginButton() (0.1s)
+Thread#0:B:Then the Systems page should NOT load
+Thread#0:T:Severe Browser Errors enountered:
+Thread#0:T:3/25/2019 11:13:45 AM: Severe: https://nxvms.com/api/account/login - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:done: LoginSteps.ThenTheSystemsPageShouldNOTLoad() (10.2s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #8 from normal test queue 
+Thread#0:Scheduler: considering testitem #8 for thread 0
+Thread#0:TestItem#8:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#8:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#8:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #8 for thread 0
+Thread#0:Scheduler: Test #8 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #7/0 is finished on thread #0 as Succeeded within 21.145915 seconds
+Thread#0: Test #8/0 is started on thread #0
+Thread#0:B:Given I visit the NxVMS landing page
+Thread#0:T:Severe Browser Errors enountered:
+Thread#0:T:3/25/2019 11:14:02 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:14:02 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:14:02 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:14:02 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:14:02 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:14:02 AM: Severe: chrome-extension://invalid/ - Failed to load resource: net::ERR_FAILED
+Thread#0:T:3/25/2019 11:14:04 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:14:04 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:14:04 AM: Severe: https://nxvms.com/api/account - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:3/25/2019 11:14:05 AM: Severe: https://nxvms.com/ - Refused to load the image 'https://stats.g.doubleclick.net/r/collect?v=1&aip=1&t=dc&_r=3&tid=UA-51046510-4&cid=1400678598.1553512445&jid=156974429&_gid=134801780.1553512445&gjid=59998298&_v=j73&z=1480413277' because it violates the following Content Security Policy directive: "img-src 'self' blob: data: https://relay.vmsproxy.com https://relay-fr.vmsproxy.com https://relay-la.vmsproxy.com https://relay-ny.vmsproxy.com https://relay-sy.vmsproxy.com https://*.relay.vmsproxy.com https://*.relay-fr.vmsproxy.com https://*.relay-la.vmsproxy.com https://*.relay-ny.vmsproxy.com https://*.relay-sy.vmsproxy.com https://nxcloud-prod-integrations-static.s3.amazonaws.com  https://*.google-analytics.com https://*.hotjar.com".
+Thread#0:T:3/25/2019 11:14:05 AM: Severe: https://sjs.bizographics.com/insight.min.js 20 Refused to load the script 'https://px.ads.linkedin.com/collect/?time=1553512445244&pid=198508&url=https%3A%2F%2Fnxvms.com%2F&fmt=js&s=1' because it violates the following Content Security Policy directive: "script-src 'self' blob: 'unsafe-inline' 'unsafe-eval' https://*.hotjar.com https://*.google-analytics.com https://www.googletagmanager.com https://sjs.bizographics.com". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+Thread#0:T:done: LoginSteps.GivenIVisitTheNxVMSpage() (4.4s)
+Thread#0:B:And I access the Log In form
+Thread#0:T:done: LoginSteps.GivenIAccessTheLogInForm() (0.1s)
+Thread#0:B:And I input "pauledwards@gmail.com" as username and "Null" as password
+Thread#0:T:done: LoginSteps.GivenIInputAsUsernameAndAsPassword("pauledwards@gmail...", "Null") (0.3s)
+Thread#0:B:When I click the Log In button
+Thread#0:T:done: LoginSteps.WhenIClickTheLoginButton() (0.1s)
+Thread#0:B:Then the Systems page should NOT load
+Thread#0:T:Severe Browser Errors enountered:
+Thread#0:T:3/25/2019 11:14:06 AM: Severe: https://nxvms.com/api/account/login - Failed to load resource: the server responded with a status of 401 ()
+Thread#0:T:done: LoginSteps.ThenTheSystemsPageShouldNOTLoad() (10.2s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #8/0 is finished on thread #0 as Succeeded within 21.3236351 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-25T04:14:20.3298599-07:00;Thread#15;Info;test run finished
+2019-03-25T04:14:20.3298599-07:00;Thread#15;Info;publishing test results
+2019-03-25T04:14:20.3498416-07:00;Thread#15;Info;test results published
+2019-03-25T04:14:20.3498416-07:00;Thread#15;Info;generating reports
+2019-03-25T04:14:20.3557923-07:00;Thread#15;Info;creating 1 report(s)
+2019-03-25T04:14:20.3568267-07:00;Thread#15;Info;generate Report ReportTemplate.cshtml
+2019-03-25T04:14:21.0579247-07:00;Thread#15;Info;reports generated
+Total: 5
+Succeeded: 5
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-25T04:14:21.0619027-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-25T04:14:21.0619027-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\NxCloudLoginTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-25T041219.html'
+2019-03-25T04:14:21.0708785-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\NxCloudLoginTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-25T041219.log

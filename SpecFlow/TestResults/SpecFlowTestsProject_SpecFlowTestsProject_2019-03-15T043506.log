@@ -1,0 +1,269 @@
+﻿2019-03-15T04:35:05.8529681-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-15T04:35:05.8579550-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-15T04:35:06.0035660-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-15T04:35:06.0035660-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-15T04:35:06.0045631-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-15T04:35:18.0807839-07:00;Thread#13;Info;starting test run
+2019-03-15T04:35:18.0867679-07:00;Thread#13;Info;Discovering target: Default
+2019-03-15T04:35:18.0867679-07:00;Thread#13;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#10: Alerts - 
+#17: Login Form - 
+#11: Alert - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Alert
+#12: Confirm_OK - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Confirm_OK
+#13: Confirm_Cancel - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Confirm_Cancel
+#14: Prompt, "" - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Prompt%2c+%22%22
+#15: Prompt, TestMonkey - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Prompt%2c+TestMonkey
+#16: Prompt, Infinite Monkeys on Infinite Keyboards - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Prompt%2c+Infinite+Monkeys+on+Infinite+Keyboards
+#18: Login with valid credentials, tomsmith - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Login+with+valid+credentials%2c+tomsmith
+#19: Attempt login with invalid credentials, Variant 0 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+0
+#20: Attempt login with invalid credentials, Variant 1 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+1
+#21: Attempt login with invalid credentials, Variant 2 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+2
+#22: Attempt login with invalid credentials, Variant 3 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+3
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #11 from normal test queue 
+Thread#0:Scheduler: considering testitem #11 for thread 0
+Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #11 for thread 0
+Thread#0:Scheduler: Test #11 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #11/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (1.7s)
+Thread#0:B:When I click the "Alert" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Alert") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Alert" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You successfuly clicked an alert"
+Thread#0:T:skipped because of previous errors
+Thread#0:TestItem#11:Scheduler: reschedule tests for testitem #11
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: dequeuing a rescheduled testitem: #11
+Thread#0:Scheduler: considering testitem #11 for thread 0
+Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #11 for thread 0
+Thread#0:Scheduler: Test #11 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 1
+Thread#0: Test #11/0 is finished on thread #0 as Failed within 8.9534021 seconds
+Thread#0: Test #11/1 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (1.7s)
+Thread#0:B:When I click the "Alert" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Alert") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Alert" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You successfuly clicked an alert"
+Thread#0:T:skipped because of previous errors
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: dequeuing a rescheduled testitem: #11
+Thread#0:Scheduler: considering testitem #11 for thread 0
+Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #11 for thread 0
+Thread#0:Scheduler: Test #11 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 2
+Thread#0: Test #11/1 is finished on thread #0 as Failed within 8.2446928 seconds
+Thread#0: Test #11/2 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (4.2s)
+Thread#0:B:When I click the "Alert" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Alert") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Alert" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You successfuly clicked an alert"
+Thread#0:T:skipped because of previous errors
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #12 from normal test queue 
+Thread#0:Scheduler: considering testitem #12 for thread 0
+Thread#0:TestItem#12:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#12:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#12:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #12 for thread 0
+Thread#0:Scheduler: Test #12 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #11/2 is finished on thread #0 as Failed within 10.756439 seconds
+Thread#0: Test #12/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (2.5s)
+Thread#0:B:When I click the "Confirm" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Confirm") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Confirm" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You clicked: Ok"
+Thread#0:T:skipped because of previous errors
+Thread#0:TestItem#12:Scheduler: reschedule tests for testitem #12
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: dequeuing a rescheduled testitem: #12
+Thread#0:Scheduler: considering testitem #12 for thread 0
+Thread#0:TestItem#12:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#12:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#12:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #12 for thread 0
+Thread#0:Scheduler: Test #12 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 1
+Thread#0: Test #12/0 is finished on thread #0 as Failed within 9.1190155 seconds
+Thread#0: Test #12/1 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (1.4s)
+Thread#0:B:When I click the "Confirm" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Confirm") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Confirm" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You clicked: Ok"
+Thread#0:T:skipped because of previous errors
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: dequeuing a rescheduled testitem: #12
+Thread#0:Scheduler: considering testitem #12 for thread 0
+Thread#0:TestItem#12:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#12:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#12:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #12 for thread 0
+Thread#0:Scheduler: Test #12 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 2
+Thread#0: Test #12/1 is finished on thread #0 as Failed within 7.9928284 seconds
+Thread#0: Test #12/2 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (2.9s)
+Thread#0:B:When I click the "Confirm" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Confirm") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Confirm" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You clicked: Ok"
+Thread#0:T:skipped because of previous errors
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #13 from normal test queue 
+Thread#0:Scheduler: considering testitem #13 for thread 0
+Thread#0:TestItem#13:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#13:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#13:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #13 for thread 0
+Thread#0:Scheduler: Test #13 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #12/2 is finished on thread #0 as Failed within 9.616287 seconds
+Thread#0: Test #13/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AlertsSteps.GivenIVisitTheAlertsPage() (3.1s)
+Thread#0:B:When I click the "Confirm" example button
+Thread#0:T:done: AlertsSteps.WhenIClickThePromptExampleButton("Confirm") (0.0s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS Confirm" text
+Thread#0:T:error: no such alert
+Thread#0:T:  (Session info: chrome=72.0.3626.121)
+Thread#0:T:  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+Thread#0:B:And I act upon alert by clicking "Cancel" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And I confirm Result message "You clicked: Cancel"
+Thread#0:T:skipped because of previous errors
+Cancelling because configured number of failures reached
+Thread#0: Test #13/0 is finished on thread #0 as Failed within 9.6989093 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #14 from normal test queue 
+Thread#-1:Scheduler: considering testitem #14 for thread -1
+Thread#-1:Scheduler: using testitem #14 for thread -1
+Thread#-1:Scheduler: Test #14 is scheduled for thread
+Thread#-1: Test #14/0 is started on thread #-1
+Thread#-1: Test #14/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #15 from normal test queue 
+Thread#-1:Scheduler: considering testitem #15 for thread -1
+Thread#-1:Scheduler: using testitem #15 for thread -1
+Thread#-1:Scheduler: Test #15 is scheduled for thread
+Thread#-1: Test #15/0 is started on thread #-1
+Thread#-1: Test #15/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #16 from normal test queue 
+Thread#-1:Scheduler: considering testitem #16 for thread -1
+Thread#-1:Scheduler: using testitem #16 for thread -1
+Thread#-1:Scheduler: Test #16 is scheduled for thread
+Thread#-1: Test #16/0 is started on thread #-1
+Thread#-1: Test #16/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #18 from normal test queue 
+Thread#-1:Scheduler: considering testitem #18 for thread -1
+Thread#-1:Scheduler: using testitem #18 for thread -1
+Thread#-1:Scheduler: Test #18 is scheduled for thread
+Thread#-1: Test #18/0 is started on thread #-1
+Thread#-1: Test #18/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #19 from normal test queue 
+Thread#-1:Scheduler: considering testitem #19 for thread -1
+Thread#-1:Scheduler: using testitem #19 for thread -1
+Thread#-1:Scheduler: Test #19 is scheduled for thread
+Thread#-1: Test #19/0 is started on thread #-1
+Thread#-1: Test #19/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #20 from normal test queue 
+Thread#-1:Scheduler: considering testitem #20 for thread -1
+Thread#-1:Scheduler: using testitem #20 for thread -1
+Thread#-1:Scheduler: Test #20 is scheduled for thread
+Thread#-1: Test #20/0 is started on thread #-1
+Thread#-1: Test #20/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #21 from normal test queue 
+Thread#-1:Scheduler: considering testitem #21 for thread -1
+Thread#-1:Scheduler: using testitem #21 for thread -1
+Thread#-1:Scheduler: Test #21 is scheduled for thread
+Thread#-1: Test #21/0 is started on thread #-1
+Thread#-1: Test #21/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #22 from normal test queue 
+Thread#-1:Scheduler: considering testitem #22 for thread -1
+Thread#-1:Scheduler: using testitem #22 for thread -1
+Thread#-1:Scheduler: Test #22 is scheduled for thread
+Thread#-1: Test #22/0 is started on thread #-1
+Thread#-1: Test #22/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-15T04:36:22.9640156-07:00;Thread#13;Info;test run finished
+2019-03-15T04:36:22.9650127-07:00;Thread#13;Info;publishing test results
+2019-03-15T04:36:22.9829647-07:00;Thread#13;Info;test results published
+2019-03-15T04:36:22.9829647-07:00;Thread#13;Info;generating reports
+2019-03-15T04:36:22.9889495-07:00;Thread#13;Info;creating 1 report(s)
+2019-03-15T04:36:22.9899462-07:00;Thread#13;Info;generate Report ReportTemplate.cshtml
+2019-03-15T04:36:23.7987846-07:00;Thread#13;Info;reports generated
+Total: 11 (test executions: 15)
+Succeeded: 0
+Ignored: 0
+Pending: 0
+Skipped: 8
+Failed: 3
+2019-03-15T04:36:23.8027743-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-15T04:36:23.8027743-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-15T043506.html'
+2019-03-15T04:36:23.8107870-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-15T043506.log

@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+
+
+<html>
+	<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>SpecFlowTestsProject Test Execution Report</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript">
+            /**
+            * jQuery.fn.sortElements
+            * --------------
+            * #author James Padolsey (http://james.padolsey.com)
+            * #version 0.11
+            * #updated 18-MAR-2010
+            * #url https://raw.github.com/jamespadolsey/jQuery-Plugins/master/sortElements/jquery.sortElements.js
+            * --------------
+            * #param Function comparator:
+            *   Exactly the same behaviour as [1,2,3].sort(comparator)
+            *   
+            * #param Function getSortable
+            *   A function that should return the element that is
+            *   to be sorted. The comparator will run on the
+            *   current collection, but you may want the actual
+            *   resulting sort to occur on a parent or another
+            *   associated element.
+            *   
+            *   E.g. $('td').sortElements(comparator, function(){
+            *      return this.parentNode; 
+            *   })
+            *   
+            *   The <td>'s parent (<tr>) will be sorted instead
+            *   of the <td> itself.
+            */
+            jQuery.fn.sortElements = (function () {
+
+                var sort = [].sort;
+
+                return function (comparator, getSortable) {
+
+                    getSortable = getSortable || function () { return this; };
+
+                    var placements = this.map(function () {
+
+                        var sortElement = getSortable.call(this),
+                parentNode = sortElement.parentNode,
+
+                        // Since the element itself will change position, we have
+                        // to have some way of storing it's original position in
+                        // the DOM. The easiest way is to have a 'flag' node:
+                nextSibling = parentNode.insertBefore(
+                    document.createTextNode(''),
+                    sortElement.nextSibling
+                );
+
+                        return function () {
+
+                            if (parentNode === this) {
+                                throw new Error(
+                        "You can't sort elements if any one is a descendant of another."
+                    );
+                            }
+
+                            // Insert before flag:
+                            parentNode.insertBefore(this, nextSibling);
+                            // Remove flag:
+                            parentNode.removeChild(nextSibling);
+
+                        };
+
+                    });
+
+                    return sort.call(this, comparator).each(function (i) {
+                        placements[i].call(getSortable.call(this));
+                    });
+
+                };
+
+            })();
+        </script>
+        <script type="text/javascript">
+            jQuery.fn.setBarSizes = (function () {
+                return function (metricName, maxBarSize, min) {
+                    var max = Math.max.apply(Math, $.makeArray($(this).map(function () { return Number($(this).attr('data-sr-' + metricName)); })));
+                    var scale = 1.0;
+                    while (max > 0.0 && max <= 10.0) {
+                        scale = scale * 10.0;
+                        max = max * 10.0;
+                    }
+                    max = (Math.ceil(max / 2) * 2) / scale;
+
+                    this.each(function () {
+                        var barAnchor = $(this).find('a');
+                        var actual = $(this).attr('data-sr-' + metricName);
+                        var newHeight = Math.max(Math.round(maxBarSize * (actual - min) / (max - min)), 2);
+                        barAnchor.css({ height: newHeight });
+                    });
+
+                    var unit = "";
+                    if (metricName.substr(metricName.length - 4, 4) === "time")
+                        unit = "s";
+
+                    $('#testview .scale-min-label').each(function () {
+                        $(this).text(min.toString() + unit);
+                    });
+                    $('#testview .scale-max-label').each(function () {
+                        $(this).text(max.toString() + unit);
+                    });
+                    var mid = max / 2;
+                    $('#testview .scale-mid-label').each(function () {
+                        $(this).text(mid.toString() + unit);
+                    });
+                };
+            })();
+
+            function getComparer(metricName, isDesc) {
+                return function (a, b) {
+                    var aNumber = Number($(a).attr('data-sr-' + metricName));
+                    var bNumber = Number($(b).attr('data-sr-' + metricName));
+                    var result = aNumber > bNumber ? 1 : (aNumber < bNumber ? -1 : 0);
+                    if (isDesc)
+                        result = -1 * result;
+
+                    if (result == 0 && metricName != "order")
+                        result = getComparer("order", false)(a, b);
+
+                    return result;
+                };
+            }
+
+            var currentSort = "";
+            function doSort(allowToggleDesc) {
+                var newSort = $("input[name='barSortOrder']:checked").val();
+                if (allowToggleDesc && currentSort == newSort) {
+                    $('#barSortDesc').click();
+                    doSort(false);
+                    return;
+                }
+                currentSort = newSort;
+                $('#testview td.testview-item').sortElements(getComparer(newSort, $('#barSortDesc').is(':checked')));
+            }
+
+
+            function doSetHeights(allowSort) {
+                var selectedMetric = $("input[name='barHeight']:checked").val();
+                $('#testview td.testview-item').setBarSizes(selectedMetric, 60, 0.0);
+
+                if (allowSort && currentSort != selectedMetric) {
+                    var $radios = $("input[name='barSortOrder']");
+                    $radios.filter('[value=' + selectedMetric + ']').attr('checked', true);
+                    $("#barSortDesc").attr("checked", [true]);
+                    doSort(false);
+                }
+            }
+
+            $(document).ready(function () {
+                $("input[name='barSortOrder']").click(function () { doSort(true); return true; });
+                $("input[name='barSortDesc']").change(function () { doSort(false); });
+                $("input[name='barHeight']").change(function () { doSetHeights(true); });
+
+                doSort(false);
+                doSetHeights(false);
+
+                $("div.scrollable").css({ 'overflow': 'auto' });
+            });
+        </script>
+
+        <style type="text/css">
+            body 
+            {
+                color: #000000;
+                font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+                line-height: 130%;
+            }
+            h1 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 170%;
+                font-weight: bold;
+            }            
+            h2 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 130%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            h3 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 120%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            a.bar
+            {
+                text-decoration: none;
+                display: block;
+                line-height: 1px;
+            }
+            .description
+            {
+                font-style: italic;
+            }
+            .log 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                display: block;
+                margin: 0px;
+            }
+            .errorMessage 
+            {
+                width: 600px;
+                color: Red;
+                font-weight: bold;
+            }
+            .stackTrace 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                font-style: italic;
+                color: Red;
+                display: block;
+            }
+            table.testEvents
+            {
+                border: solid 1px #e8eef4;
+                border-collapse: collapse;
+            }
+            table.testEvents td
+            {
+                vertical-align: top;
+                padding: 5px;
+                border: solid 1px #e8eef4;
+            }
+            table.testEvents th
+            {
+                padding: 6px 5px;
+                text-align: left;
+                background-color: #e8eef4;
+                border: solid 1px #e8eef4;                
+            }
+            .comment
+            {
+                font-style: italic;
+                font-size: smaller;
+            }
+            .startupBar
+            {
+                background-color: #EEEEEE;
+                cursor: default;
+            }
+            
+            .colorSucceeded
+            {
+                background-color: #90ED7B;
+            }
+            .colorIgnored
+            {
+                background-color: #FFFF85;
+            }
+            .colorPending
+            {
+                background-color: #D47BED;
+            }
+            .colorNothingToRun
+            {
+                background-color: #CCCCFF;
+            }
+            .colorSkipped
+            {
+                background-color: #CCCCFF;
+            }
+            .colorInconclusive
+            {
+                background-color: #7BEDED;
+            }
+            .colorCleanupFailed
+            {
+                background-color: #FFCCCC;
+            }
+            .colorRandomlyFailed
+            {
+                background-color: #EDB07B;
+            }
+            .colorFailed
+            {
+                background-color: #ED5F5F;
+            }
+            .colorInitializationFailed
+            {
+                background-color: #FF0000;
+            }
+            .colorFrameworkError
+            {
+                background-color: #FF0000;
+            }
+            ul.subNodeLinks
+            {
+                padding-left: 20px;
+                margin: 0px;
+            }
+            ul.subNodeLinks li
+            {
+                list-style: none;
+            }
+            
+            /* views general */
+            div.scrollable
+            {
+                /*overflow: auto; - thsi has to be set from js, because of an IE9 bug */
+            }
+            div.viewbox
+            {
+                position: relative;
+                border: 3px solid #e8eef4;
+            }
+            div.viewbox table
+            {
+                border: 0px;
+            }
+                        
+            /* testview */
+            #testview
+            {
+                padding-top: 23px;
+            }
+            
+            table.testview-items td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 1px;
+            }
+            td.right-padding, td.left-padding
+            {
+                width: 25px;
+                min-width: 25px;
+            }
+            table.testview-items a.bar
+            {
+                width: 5px;
+            }
+            table.testview-items tr.testview-items-row
+            {
+                height: 60px;
+            }
+            
+            /* scale */
+            table.vertical-scale 
+            {
+                position: absolute;
+                top: 23px;
+                left: 0px;
+                width: 100%;
+                z-index: -100;
+            }
+            table.vertical-scale td, tr.horizontal-scale td
+            {
+                font-size: 60%;
+                line-height: normal;
+            }
+            table.vertical-scale tr.scale-max, table.vertical-scale tr.scale-mid 
+            {
+                height: 30px;
+            }
+            tr.horizontal-scale, table.vertical-scale tr.scale-min 
+            {
+                height: 12px;
+            }
+            
+            td.scale-max-label, td.scale-mid-label, td.scale-min-label
+            {
+                border-top: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: top;
+            }
+            td.scale-10-label
+            {
+                border-left: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: bottom;
+                padding-left: 1px;
+            }
+            tr.scale-mid td, tr.scale-min td, tr.scale-max td
+            {
+                border-top: solid 1px #E6E6E6;
+            }
+           
+            
+            /* bar-control */
+            #bar-control
+            {
+                font-size: 60%;
+                line-height: normal;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+            #bar-control label
+            {
+                font-weight: bold;
+                vertical-align: middle;
+            }
+            #bar-control .option
+            {
+                vertical-align: middle;
+                text-transform: lowercase;
+            }
+            #bar-control input[type="checkbox"]
+            {
+                padding: 0 2px 0 3px;
+            }
+            #bar-control input
+            {
+                vertical-align: top;
+                height: 12px;
+                margin: 0px;
+                padding: 0px;
+            }
+            #bar-control div
+            {
+                float: right;
+                margin: 3px 5px 3px 5px;
+            }
+            
+            
+            /* timeline view */
+            #timelineview
+            {
+                padding-top: 5px;
+            }
+            table.timelineview a
+            {
+                height: 20px;
+            }
+            table.timelineview td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 0px;
+                border: 0px;
+            }
+            tr.thread-items-row
+            {
+                height: 25px;
+            }
+            tr.thread-items-row td
+            {
+                vertical-align: bottom;
+            }
+            td.thread-label
+            {
+                padding: 0px 6px 0px 6px;
+                text-align: right;
+                line-height: 18px;
+                vertical-align: bottom;
+            }
+            th.thread-label
+            {
+                padding: 3px 6px 0px 6px;
+                line-height: 18px;
+                text-align: left;
+                vertical-align: bottom;
+            }
+        </style>
+	</head>
+	<body>
+        <h1>SpecFlowTestsProject Test Execution Report</h1>
+        <ul>
+            <li>Project: SpecFlowTestsProject</li>
+            <li>Configuration: SpecFlowTestsProject</li>
+            <li>Test Assemblies: SpecFlowTestsProject.dll</li>
+            <li>Start Time: 3/22/2019 1:30:06 AM</li>
+            <li>Duration: 00:02:21.4988001</li>
+            <li>Test Threads: 1</li>
+        </ul>
+
+        <h2>Result: all tests passed (2 ignored)</h2>
+        <table class="testEvents">
+                <tr>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+
+                <tr>
+            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 174px;" 
+                           title="14 succeeded" 
+                                                   />
+                    </td>
+                    <td>
+                        <a class="bar colorIgnored" 
+                           style="width: 24px;" 
+                           title="2 ignored" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>16</td>
+    <td>14</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td>0</td>
+
+    </tr>
+
+        </table>
+        
+        <h2>Test Timeline Summary</h2>
+
+        <div id="timelineview" class="viewbox">
+            <div class="scrollable">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th class="thread-label" colspan="2">thread</th>
+                    </tr>
+                        <tr class="thread-items-row">
+                            <td class="thread-label" title="Machine: PAUL-LAPTOP">#0</td>
+                            <td colspan="2">
+                                <table class="timelineview" cellpadding="0" cellspacing="0">
+                                    <tr>
+
+                                            <td>
+        <a
+            class="bar startupBar" 
+            style="width: 3px;" 
+                title="test thread startup" 
+        >&nbsp;</a>
+    </td>
+
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="Geolocate authorized by user (in Geolocation)" 
+                href="#t-1669326290.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 13px;" 
+                title="Remove and Add checkbox control (in Dynamic)" 
+                href="#t-79251166.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 12px;" 
+                title="Enable and Disable text input control (in Dynamic)" 
+                href="#t358070498.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 5px;" 
+                title="Basic Alert (in Alerts)" 
+                href="#t-1786418300.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 7px;" 
+                title="Confirm OK (in Alerts)" 
+                href="#t33600081.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="Confirm Cancel (in Alerts)" 
+                href="#t-1273289701.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 5px;" 
+                title="Prompt, &quot;&quot; (in Alerts)" 
+                href="#t-112113509.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 5px;" 
+                title="Prompt, TestMonkey (in Alerts)" 
+                href="#t-1476123671.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="Prompt, Infinite Monkeys on Infinite Keyboards (in Alerts)" 
+                href="#t-207479023.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 7px;" 
+                title="Login with valid credentials (in Login Form)" 
+                href="#t1696421808.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="Attempt login with invalid credentials, Variant 0 (in Login Form)" 
+                href="#t694736982.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="Attempt login with invalid credentials, Variant 1 (in Login Form)" 
+                href="#t694736981.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="Attempt login with invalid credentials, Variant 2 (in Login Form)" 
+                href="#t694736980.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="Attempt login with invalid credentials, Variant 3 (in Login Form)" 
+                href="#t694736939.0"
+        >&nbsp;</a>
+    </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="horizontal-scale">
+                        <td>&nbsp;</td>
+                            <td class="scale-10-label" style="width: 70px;min-width: 70px;">0s</td>
+                        <td class="scale-10-label">88s</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Test Result View</h2>
+        <div id="testview" class="viewbox">
+            <div id="bar-control">
+                <div id="bar-control-sort">
+                    <label>sort by:</label>
+                    <span class="option"><input type="radio" name="barSortOrder" value="exectime" />Time</span>
+                    <span class="option"><input type="radio" name="barSortOrder" value="acttime" />Act Time</span>
+                    <span class="option"><input type="radio" name="barSortOrder" value="order" />Execution</span>
+                    <span class="option"><input type="radio" name="barSortOrder" value="rescode" checked="checked" />Result</span>
+                    <span class="option"><input type="checkbox" name="barSortDesc" id="barSortDesc" checked="checked" />desc</span>
+                </div>
+                <div id="bar-control-heights">
+                    <label>heights:</label>
+                    <span class="option"><input type="radio" checked="checked" name="barHeight" value="exectime" />Time</span>
+                    <span class="option"><input type="radio" name="barHeight" value="acttime" />Act Time</span>
+                    
+                </div>
+            </div>
+            <table class="vertical-scale" cellpadding="0" cellspacing="0">
+                <tr class="scale-max">
+                    <td class="left-padding scale-max-label">&nbsp;</td>
+                    <td colspan="16">&nbsp;</td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+                <tr class="scale-mid">
+                    <td class="left-padding scale-mid-label">&nbsp;</td>
+                    <td colspan="16">&nbsp;</td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+                <tr class="scale-min">
+                    <td class="left-padding scale-min-label">&nbsp;</td>
+                    <td colspan="16">&nbsp;</td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+            </table>
+            <div class="scrollable">
+                <table class="testview-items" cellpadding="0" cellspacing="0">
+                    <tr class="testview-items-row">
+                        <td class="left-padding">&nbsp;</td>
+    <td class="testview-item" 
+        data-sr-exectime="11.370333" data-sr-rescode="110" data-sr-order="0" data-sr-acttime="0.108">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 39px;"
+            title="Geolocate authorized by user (in Geolocation)"
+            href="#t-1669326290.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="17.6823583" data-sr-rescode="110" data-sr-order="1" data-sr-acttime="1.159">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 60px;"
+            title="Remove and Add checkbox control (in Dynamic)"
+            href="#t-79251166.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="15.9794218" data-sr-rescode="110" data-sr-order="2" data-sr-acttime="1.196">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 54px;"
+            title="Enable and Disable text input control (in Dynamic)"
+            href="#t358070498.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="8.4699795" data-sr-rescode="110" data-sr-order="5" data-sr-acttime="0.092">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 29px;"
+            title="Basic Alert (in Alerts)"
+            href="#t-1786418300.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="10.0320942" data-sr-rescode="110" data-sr-order="6" data-sr-acttime="0.103">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 34px;"
+            title="Confirm OK (in Alerts)"
+            href="#t33600081.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="7.8781145" data-sr-rescode="110" data-sr-order="7" data-sr-acttime="0.129">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 27px;"
+            title="Confirm Cancel (in Alerts)"
+            href="#t-1273289701.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="7.758827" data-sr-rescode="110" data-sr-order="8" data-sr-acttime="0.105">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 26px;"
+            title="Prompt, &quot;&quot; (in Alerts)"
+            href="#t-112113509.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="7.8639254" data-sr-rescode="110" data-sr-order="9" data-sr-acttime="0.1">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 27px;"
+            title="Prompt, TestMonkey (in Alerts)"
+            href="#t-1476123671.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="8.9881245" data-sr-rescode="110" data-sr-order="10" data-sr-acttime="0.091">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 30px;"
+            title="Prompt, Infinite Monkeys on Infinite Keyboards (in Alerts)"
+            href="#t-207479023.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="10.131927" data-sr-rescode="110" data-sr-order="11" data-sr-acttime="0.376">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 34px;"
+            title="Login with valid credentials (in Login Form)"
+            href="#t1696421808.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="8.8833156" data-sr-rescode="110" data-sr-order="12" data-sr-acttime="0.404">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 30px;"
+            title="Attempt login with invalid credentials, Variant 0 (in Login Form)"
+            href="#t694736982.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="9.0480005" data-sr-rescode="110" data-sr-order="13" data-sr-acttime="0.384">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 31px;"
+            title="Attempt login with invalid credentials, Variant 1 (in Login Form)"
+            href="#t694736981.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="8.8645561" data-sr-rescode="110" data-sr-order="14" data-sr-acttime="0.407">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 30px;"
+            title="Attempt login with invalid credentials, Variant 2 (in Login Form)"
+            href="#t694736980.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="8.3404142" data-sr-rescode="110" data-sr-order="15" data-sr-acttime="0.371">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 28px;"
+            title="Attempt login with invalid credentials, Variant 3 (in Login Form)"
+            href="#t694736939.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="120" data-sr-order="3" data-sr-acttime="0.0">
+        <a
+            class="bar colorIgnored" 
+            style="height: 2px;"
+            title="Bug: lingering checkbox DIV(s) on multiple Remove/add operations (in Dynamic)"
+            href="#t1001975761.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="120" data-sr-order="4" data-sr-acttime="0.0">
+        <a
+            class="bar colorIgnored" 
+            style="height: 2px;"
+            title="Bug: loading animations not hidden if interacting with Checkbox Remove/add before Text Input Enable/disable (in Dynamic)"
+            href="#t1880617242.0">&nbsp;</a>
+    </td>
+                        <td class="right-padding">&nbsp;</td>
+                    </tr>
+                    <tr class="horizontal-scale">
+                        <td class="left-padding">&nbsp;</td>
+                        <td colspan="10">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Feature Summary</h2>
+        <table class="testEvents">
+                <tr>
+            <th>Feature</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+    <tr>
+            <td><a href="#f-675301000">Alerts</a></td>
+            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="6 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:50.9910651</td>
+
+    </tr>
+    <tr>
+            <td><a href="#f283439498">Dynamic</a></td>
+            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 99px;" 
+                           title="2 succeeded" 
+                                                   />
+                    </td>
+                    <td>
+                        <a class="bar colorIgnored" 
+                           style="width: 99px;" 
+                           title="2 ignored" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>4</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td>0</td>
+        <td>00:00:33.6617801</td>
+
+    </tr>
+    <tr>
+            <td><a href="#f-19736717">Geolocation</a></td>
+            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:11.3703330</td>
+
+    </tr>
+    <tr>
+            <td><a href="#f-1328394732">Login Form</a></td>
+            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="5 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:45.2682134</td>
+
+    </tr>
+        </table>
+
+        <a name="error_summary" />
+        <h2>Error Summary</h2>
+        <table class="testEvents">
+                <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+
+        </table>
+
+        <h2>Scenario Summary</h2>
+            <a name="f-675301000" />
+            <h3>Feature: Alerts</h3>
+                <div class="description"><pre>	In order to test JavaScript alerts
+	As an Automated Test
+	I will exercise several examples</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-1786418300.0">Scenario: Basic Alert</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:08.4699795</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t33600081.0">Scenario: Confirm OK</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:10.0320942</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1273289701.0">Scenario: Confirm Cancel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:07.8781145</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-112113509.0">Scenario: Prompt, &quot;&quot;</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:07.7588270</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1476123671.0">Scenario: Prompt, TestMonkey</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:07.8639254</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-207479023.0">Scenario: Prompt, Infinite Monkeys on Infinite Keyboards</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:08.9881245</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f283439498" />
+            <h3>Feature: Dynamic</h3>
+                <div class="description"><pre>	In order to test Dynamic Controls changed asynchronously
+	As an Automated Test
+	I will exercise two examples</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-79251166.0">Scenario: Remove and Add checkbox control</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:17.6823583</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t358070498.0">Scenario: Enable and Disable text input control</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:15.9794218</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1001975761.0">Scenario: Bug: lingering checkbox DIV(s) on multiple Remove/add operations</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorIgnored" 
+                           style="width: 199px;" 
+                           title="1 ignored" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1880617242.0">Scenario: Bug: loading animations not hidden if interacting with Checkbox Remove/add before Text Input Enable/disable</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorIgnored" 
+                           style="width: 199px;" 
+                           title="1 ignored" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-19736717" />
+            <h3>Feature: Geolocation</h3>
+                <div class="description"><pre>	In order to determine visitor device location
+	So we can deliver location specific services
+	I will test a browser Geolocation example implementation</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-1669326290.0">Scenario: Geolocate authorized by user</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:11.3703330</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-1328394732" />
+            <h3>Feature: Login Form</h3>
+                <div class="description"><pre>	In order to login to the application
+	As a user
+	I want to be able to login using assigned credentials
+	And must not be able to login with invalid credentials</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t1696421808.0">Scenario: Login with valid credentials</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:10.1319270</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t694736982.0">Scenario: Attempt login with invalid credentials, Variant 0</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:08.8833156</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t694736981.0">Scenario: Attempt login with invalid credentials, Variant 1</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:09.0480005</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t694736980.0">Scenario: Attempt login with invalid credentials, Variant 2</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:08.8645561</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t694736939.0">Scenario: Attempt login with invalid credentials, Variant 3</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                    <td>
+                        <a class="bar colorSucceeded" 
+                           style="width: 199px;" 
+                           title="1 succeeded" 
+                                                   />
+                    </td>
+            </tr>
+            
+        </table>
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:08.3404142</td>
+
+                        
+                    </tr>
+            </table>
+
+        <h2>Execution Details</h2>
+            <a name="t-1669326290.0" />
+            <h3>Scenario: Geolocate authorized by user (in SpecFlowTestsProject, Geolocation)</h3>
+                <div class="description">
+                    tags: Geolocation, Allowed
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:30:07 AM</li>
+                <li>Execution time (sec): 11.370333</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log"></pre>
+                        </td>
+                        <td>
+                            <!-- [Initialization: Feature - Geolocation] -->
+                            <pre class="log">-&gt; Using app.config</pre>
+                        </td>
+                        <td>Succeeded in 0.377s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the Geolocation page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Geolocate authorized by user] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheGeolocationPage() (1.6s)</pre>
+                        </td>
+                        <td>Succeeded in 3.957s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the Where am I? button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Geolocate authorized by user] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheWhereAmIButton() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.108s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then User&#39;s Lat/Long coordinates are displayed and viewable on Google Maps</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Geolocate authorized by user] -->
+                            <pre class="log">done: AllSteps.ThenUserSLatLongCoordinatesAreDisplayed() (2.7s)</pre>
+                        </td>
+                        <td>Succeeded in 2.731s</td>
+                    </tr>
+            </table>
+            <a name="t-79251166.0" />
+            <h3>Scenario: Remove and Add checkbox control (in SpecFlowTestsProject, Dynamic)</h3>
+                <div class="description">
+                    tags: DynamicControls
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:30:18 AM</li>
+                <li>Execution time (sec): 17.6823583</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the Dynamic Controls example page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Remove and Add checkbox control] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.5s)</pre>
+                        </td>
+                        <td>Succeeded in 3.635s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I toggle the checkbox</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Remove and Add checkbox control] -->
+                            <pre class="log">done: AllSteps.GivenICheckTheBox() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.1s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Remove&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Remove and Add checkbox control] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheButton(&quot;Remove&quot;) (0.6s)</pre>
+                        </td>
+                        <td>Succeeded in 0.593s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Observe loading animation shown then hidden</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Remove and Add checkbox control] -->
+                            <pre class="log">done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (2.6s)</pre>
+                        </td>
+                        <td>Succeeded in 2.647s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And Confirm checkbox removal</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Remove and Add checkbox control] -->
+                            <pre class="log">done: AllSteps.ThenConfirmCheckboxRemoval() (3.1s)</pre>
+                        </td>
+                        <td>Succeeded in 3.113s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Add&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Remove and Add checkbox control] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheButton(&quot;Add&quot;) (0.6s)</pre>
+                        </td>
+                        <td>Succeeded in 0.565s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Observe loading animation shown then hidden</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Remove and Add checkbox control] -->
+                            <pre class="log">done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.309s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And Confirm checkbox added</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Remove and Add checkbox control] -->
+                            <pre class="log">done: AllSteps.ThenConfirmCheckboxAdded() (2.6s)</pre>
+                        </td>
+                        <td>Succeeded in 2.594s</td>
+                    </tr>
+            </table>
+            <a name="t358070498.0" />
+            <h3>Scenario: Enable and Disable text input control (in SpecFlowTestsProject, Dynamic)</h3>
+                <div class="description">
+                    tags: DynamicControls
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:30:36 AM</li>
+                <li>Execution time (sec): 15.9794218</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the Dynamic Controls example page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Enable and Disable text input control] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.4s)</pre>
+                        </td>
+                        <td>Succeeded in 3.524s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Enable&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Enable and Disable text input control] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheButton(&quot;Enable&quot;) (0.6s)</pre>
+                        </td>
+                        <td>Succeeded in 0.616s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Observe loading animation shown then hidden</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Enable and Disable text input control] -->
+                            <pre class="log">done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (2.6s)</pre>
+                        </td>
+                        <td>Succeeded in 2.642s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And Confirm text input &quot;enabled&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Enable and Disable text input control] -->
+                            <pre class="log">done: AllSteps.ThenConfirmTextInput(&quot;enabled&quot;) (1.0s)</pre>
+                        </td>
+                        <td>Succeeded in 1.031s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I input &quot;random&quot; text</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Enable and Disable text input control] -->
+                            <pre class="log">done: AllSteps.ThenIInputText(&quot;random&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.068s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Disable&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Enable and Disable text input control] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheButton(&quot;Disable&quot;) (0.6s)</pre>
+                        </td>
+                        <td>Succeeded in 0.58s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Observe loading animation shown then hidden</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Enable and Disable text input control] -->
+                            <pre class="log">done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.31s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And Confirm text input &quot;disabled&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Enable and Disable text input control] -->
+                            <pre class="log">done: AllSteps.ThenConfirmTextInput(&quot;disabled&quot;) (3.1s)</pre>
+                        </td>
+                        <td>Succeeded in 3.064s</td>
+                    </tr>
+            </table>
+            <a name="t1001975761.0" />
+            <h3>Scenario: Bug: lingering checkbox DIV(s) on multiple Remove/add operations (in SpecFlowTestsProject, Dynamic)</h3>
+                <div class="description">
+                    tags: DynamicControls, Bug
+                </div>
+            <ul>
+                <li>Status: Ignored</li>
+                <li>Start time: 3/22/2019 1:30:47 AM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log"></pre>
+                        </td>
+                        <td>
+                            <!-- [Test: Scenario - Bug: lingering checkbox DIV(s) on multiple Remove/add operations] -->
+                            <pre class="log">Ignored</pre>
+                        </td>
+                        <td>Ignored in 0s</td>
+                    </tr>
+            </table>
+            <a name="t1880617242.0" />
+            <h3>Scenario: Bug: loading animations not hidden if interacting with Checkbox Remove/add before Text Input Enable/disable (in SpecFlowTestsProject, Dynamic)</h3>
+                <div class="description">
+                    tags: DynamicControls, Bug
+                </div>
+            <ul>
+                <li>Status: Ignored</li>
+                <li>Start time: 3/22/2019 1:30:47 AM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log"></pre>
+                        </td>
+                        <td>
+                            <!-- [Test: Scenario - Bug: loading animations not hidden if interacting with Checkbox Remove/add before Text Input Enable/disable] -->
+                            <pre class="log">Ignored</pre>
+                        </td>
+                        <td>Ignored in 0s</td>
+                    </tr>
+            </table>
+            <a name="t-1786418300.0" />
+            <h3>Scenario: Basic Alert (in SpecFlowTestsProject, Alerts)</h3>
+                <div class="description">
+                    tags: Alert, Basic
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:30:52 AM</li>
+                <li>Execution time (sec): 8.4699795</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the JavaScript example alerts page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Basic Alert] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheAlertsPage() (2.1s)</pre>
+                        </td>
+                        <td>Succeeded in 4.215s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Alert&quot; example button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Basic Alert] -->
+                            <pre class="log">done: AllSteps.WhenIClickThePromptExampleButton(&quot;Alert&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.092s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then I confirm Alert appears with &quot;I am a JS Alert&quot; text</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Basic Alert] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmAlertAppearsWithText(&quot;I am a JS Alert&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by clicking &quot;OK&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Basic Alert] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByClickingButton(&quot;OK&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I confirm Result message &quot;You successfuly clicked an alert&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Basic Alert] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmResultMessage(&quot;You successfuly c...&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.039s</td>
+                    </tr>
+            </table>
+            <a name="t33600081.0" />
+            <h3>Scenario: Confirm OK (in SpecFlowTestsProject, Alerts)</h3>
+                <div class="description">
+                    tags: Alert, Confirm, OK
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:31:00 AM</li>
+                <li>Execution time (sec): 10.0320942</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the JavaScript example alerts page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Confirm OK] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheAlertsPage() (3.6s)</pre>
+                        </td>
+                        <td>Succeeded in 5.759s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Confirm&quot; example button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Confirm OK] -->
+                            <pre class="log">done: AllSteps.WhenIClickThePromptExampleButton(&quot;Confirm&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.103s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then I confirm Alert appears with &quot;I am a JS Confirm&quot; text</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Confirm OK] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmAlertAppearsWithText(&quot;I am a JS Confirm&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by clicking &quot;OK&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Confirm OK] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByClickingButton(&quot;OK&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I confirm Result message &quot;You clicked: Ok&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Confirm OK] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmResultMessage(&quot;You clicked: Ok&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.037s</td>
+                    </tr>
+            </table>
+            <a name="t-1273289701.0" />
+            <h3>Scenario: Confirm Cancel (in SpecFlowTestsProject, Alerts)</h3>
+                <div class="description">
+                    tags: Alert, Confirm, Cancel
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:31:10 AM</li>
+                <li>Execution time (sec): 7.8781145</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the JavaScript example alerts page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Confirm Cancel] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheAlertsPage() (1.4s)</pre>
+                        </td>
+                        <td>Succeeded in 3.563s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Confirm&quot; example button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Confirm Cancel] -->
+                            <pre class="log">done: AllSteps.WhenIClickThePromptExampleButton(&quot;Confirm&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.129s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then I confirm Alert appears with &quot;I am a JS Confirm&quot; text</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Confirm Cancel] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmAlertAppearsWithText(&quot;I am a JS Confirm&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by clicking &quot;Cancel&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Confirm Cancel] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByClickingButton(&quot;Cancel&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.006s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I confirm Result message &quot;You clicked: Cancel&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Confirm Cancel] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmResultMessage(&quot;You clicked: Cancel&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.043s</td>
+                    </tr>
+            </table>
+            <a name="t-112113509.0" />
+            <h3>Scenario: Prompt, &quot;&quot; (in SpecFlowTestsProject, Alerts)</h3>
+                <div class="description">
+                    tags: Alert, Prompt
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:31:18 AM</li>
+                <li>Execution time (sec): 7.758827</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the JavaScript example alerts page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Prompt, &quot;&quot;] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheAlertsPage() (1.3s)</pre>
+                        </td>
+                        <td>Succeeded in 3.476s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Prompt&quot; example button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Prompt, &quot;&quot;] -->
+                            <pre class="log">done: AllSteps.WhenIClickThePromptExampleButton(&quot;Prompt&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.105s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then I confirm Alert appears with &quot;I am a JS prompt&quot; text</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, &quot;&quot;] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmAlertAppearsWithText(&quot;I am a JS prompt&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by inputting text &quot;&quot;&quot;&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, &quot;&quot;] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByInputtingText(&quot;&quot;&quot;&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by clicking &quot;OK&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, &quot;&quot;] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByClickingButton(&quot;OK&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I confirm Result message &quot;You entered:&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, &quot;&quot;] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmResultMessage(&quot;You entered:&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.045s</td>
+                    </tr>
+            </table>
+            <a name="t-1476123671.0" />
+            <h3>Scenario: Prompt, TestMonkey (in SpecFlowTestsProject, Alerts)</h3>
+                <div class="description">
+                    tags: Alert, Prompt
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:31:26 AM</li>
+                <li>Execution time (sec): 7.8639254</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the JavaScript example alerts page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Prompt, TestMonkey] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheAlertsPage() (1.5s)</pre>
+                        </td>
+                        <td>Succeeded in 3.59s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Prompt&quot; example button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Prompt, TestMonkey] -->
+                            <pre class="log">done: AllSteps.WhenIClickThePromptExampleButton(&quot;Prompt&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.1s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then I confirm Alert appears with &quot;I am a JS prompt&quot; text</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, TestMonkey] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmAlertAppearsWithText(&quot;I am a JS prompt&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by inputting text &quot;TestMonkey&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, TestMonkey] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByInputtingText(&quot;TestMonkey&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by clicking &quot;Cancel&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, TestMonkey] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByClickingButton(&quot;Cancel&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I confirm Result message &quot;You entered: null&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, TestMonkey] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmResultMessage(&quot;You entered: null&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.037s</td>
+                    </tr>
+            </table>
+            <a name="t-207479023.0" />
+            <h3>Scenario: Prompt, Infinite Monkeys on Infinite Keyboards (in SpecFlowTestsProject, Alerts)</h3>
+                <div class="description">
+                    tags: Alert, Prompt
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:31:34 AM</li>
+                <li>Execution time (sec): 8.9881245</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the JavaScript example alerts page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Prompt, Infinite Monkeys on Infinite Keyboards] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheAlertsPage() (2.6s)</pre>
+                        </td>
+                        <td>Succeeded in 4.702s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the &quot;Prompt&quot; example button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Prompt, Infinite Monkeys on Infinite Keyboards] -->
+                            <pre class="log">done: AllSteps.WhenIClickThePromptExampleButton(&quot;Prompt&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.091s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then I confirm Alert appears with &quot;I am a JS prompt&quot; text</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, Infinite Monkeys on Infinite Keyboards] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmAlertAppearsWithText(&quot;I am a JS prompt&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by inputting text &quot;Infinite Monkeys on Infinite Keyboards&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, Infinite Monkeys on Infinite Keyboards] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByInputtingText(&quot;Infinite Monkeys ...&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I act upon alert by clicking &quot;OK&quot; button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, Infinite Monkeys on Infinite Keyboards] -->
+                            <pre class="log">done: AllSteps.ThenIActUponAlertByClickingButton(&quot;OK&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I confirm Result message &quot;You entered: Infinite Monkeys on Infinite Keyboards&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Prompt, Infinite Monkeys on Infinite Keyboards] -->
+                            <pre class="log">done: AllSteps.ThenIConfirmResultMessage(&quot;You entered: Infi...&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.042s</td>
+                    </tr>
+            </table>
+            <a name="t1696421808.0" />
+            <h3>Scenario: Login with valid credentials (in SpecFlowTestsProject, Login Form)</h3>
+                <div class="description">
+                    tags: login, Valid
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:31:43 AM</li>
+                <li>Execution time (sec): 10.131927</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the login form</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Login with valid credentials] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheLoginForm() (2.8s)</pre>
+                        </td>
+                        <td>Succeeded in 4.969s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I input &quot;tomsmith&quot; as username and &quot;SuperSecretPassword!&quot; as password</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Login with valid credentials] -->
+                            <pre class="log">done: AllSteps.GivenIInputAsUsernameAndAsPassword(&quot;tomsmith&quot;, &quot;SuperSecretPassword!&quot;) (0.2s)</pre>
+                        </td>
+                        <td>Succeeded in 0.189s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the Login button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Login with valid credentials] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheLoginButton() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.376s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the Secure Area page should load without error</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Login with valid credentials] -->
+                            <pre class="log">done: AllSteps.ThenTheSecureAreaPageShouldLoadWithoutError() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.034s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And the user should see &quot;You logged into a secure area!&quot; indicating &quot;success&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Login with valid credentials] -->
+                            <pre class="log">done: AllSteps.ThenTheUserShouldSeeIndicating(&quot;You logged into a...&quot;, &quot;success&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.048s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And the user can logout and return to the login form</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Login with valid credentials] -->
+                            <pre class="log">done: AllSteps.ThenTheUserCanLogoutAndReturnToTheLoginForm() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.384s</td>
+                    </tr>
+            </table>
+            <a name="t694736982.0" />
+            <h3>Scenario: Attempt login with invalid credentials, Variant 0 (in SpecFlowTestsProject, Login Form)</h3>
+                <div class="description">
+                    tags: login, invalid
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:31:53 AM</li>
+                <li>Execution time (sec): 8.8833156</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the login form</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Attempt login with invalid credentials, Variant 0] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheLoginForm() (2.0s)</pre>
+                        </td>
+                        <td>Succeeded in 4.096s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I input &quot;garbage&quot; as username and &quot;SuperSecretPassword!&quot; as password</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Attempt login with invalid credentials, Variant 0] -->
+                            <pre class="log">done: AllSteps.GivenIInputAsUsernameAndAsPassword(&quot;garbage&quot;, &quot;SuperSecretPassword!&quot;) (0.2s)</pre>
+                        </td>
+                        <td>Succeeded in 0.178s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the Login button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Attempt login with invalid credentials, Variant 0] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheLoginButton() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.404s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the user should see &quot;Your username is invalid!&quot; indicating &quot;error&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Attempt login with invalid credentials, Variant 0] -->
+                            <pre class="log">done: AllSteps.ThenTheUserShouldSeeIndicating(&quot;Your username is ...&quot;, &quot;error&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.057s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And the Secure Area page should NOT load</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Attempt login with invalid credentials, Variant 0] -->
+                            <pre class="log">done: AllSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.014s</td>
+                    </tr>
+            </table>
+            <a name="t694736981.0" />
+            <h3>Scenario: Attempt login with invalid credentials, Variant 1 (in SpecFlowTestsProject, Login Form)</h3>
+                <div class="description">
+                    tags: login, invalid
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:32:02 AM</li>
+                <li>Execution time (sec): 9.0480005</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the login form</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Attempt login with invalid credentials, Variant 1] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheLoginForm() (2.2s)</pre>
+                        </td>
+                        <td>Succeeded in 4.306s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I input &quot;Null&quot; as username and &quot;SuperSecretPassword!&quot; as password</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Attempt login with invalid credentials, Variant 1] -->
+                            <pre class="log">done: AllSteps.GivenIInputAsUsernameAndAsPassword(&quot;Null&quot;, &quot;SuperSecretPassword!&quot;) (0.2s)</pre>
+                        </td>
+                        <td>Succeeded in 0.174s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the Login button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Attempt login with invalid credentials, Variant 1] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheLoginButton() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.384s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the user should see &quot;Your username is invalid!&quot; indicating &quot;error&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Attempt login with invalid credentials, Variant 1] -->
+                            <pre class="log">done: AllSteps.ThenTheUserShouldSeeIndicating(&quot;Your username is ...&quot;, &quot;error&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.058s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And the Secure Area page should NOT load</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Attempt login with invalid credentials, Variant 1] -->
+                            <pre class="log">done: AllSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.012s</td>
+                    </tr>
+            </table>
+            <a name="t694736980.0" />
+            <h3>Scenario: Attempt login with invalid credentials, Variant 2 (in SpecFlowTestsProject, Login Form)</h3>
+                <div class="description">
+                    tags: login, invalid
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:32:11 AM</li>
+                <li>Execution time (sec): 8.8645561</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the login form</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Attempt login with invalid credentials, Variant 2] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheLoginForm() (2.0s)</pre>
+                        </td>
+                        <td>Succeeded in 4.105s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I input &quot;tomsmith&quot; as username and &quot;garbage&quot; as password</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Attempt login with invalid credentials, Variant 2] -->
+                            <pre class="log">done: AllSteps.GivenIInputAsUsernameAndAsPassword(&quot;tomsmith&quot;, &quot;garbage&quot;) (0.2s)</pre>
+                        </td>
+                        <td>Succeeded in 0.154s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the Login button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Attempt login with invalid credentials, Variant 2] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheLoginButton() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.407s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the user should see &quot;Your password is invalid!&quot; indicating &quot;error&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Attempt login with invalid credentials, Variant 2] -->
+                            <pre class="log">done: AllSteps.ThenTheUserShouldSeeIndicating(&quot;Your password is ...&quot;, &quot;error&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.057s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And the Secure Area page should NOT load</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Attempt login with invalid credentials, Variant 2] -->
+                            <pre class="log">done: AllSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.015s</td>
+                    </tr>
+            </table>
+            <a name="t694736939.0" />
+            <h3>Scenario: Attempt login with invalid credentials, Variant 3 (in SpecFlowTestsProject, Login Form)</h3>
+                <div class="description">
+                    tags: login, invalid
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 3/22/2019 1:32:20 AM</li>
+                <li>Execution time (sec): 8.3404142</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given I visit the login form</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Attempt login with invalid credentials, Variant 3] -->
+                            <pre class="log">done: AllSteps.GivenIVisitTheLoginForm() (1.5s)</pre>
+                        </td>
+                        <td>Succeeded in 3.652s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And I input &quot;tomsmith&quot; as username and &quot;Null&quot; as password</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Attempt login with invalid credentials, Variant 3] -->
+                            <pre class="log">done: AllSteps.GivenIInputAsUsernameAndAsPassword(&quot;tomsmith&quot;, &quot;Null&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.134s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When I click the Login button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Attempt login with invalid credentials, Variant 3] -->
+                            <pre class="log">done: AllSteps.WhenIClickTheLoginButton() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.371s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the user should see &quot;Your password is invalid!&quot; indicating &quot;error&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Attempt login with invalid credentials, Variant 3] -->
+                            <pre class="log">done: AllSteps.ThenTheUserShouldSeeIndicating(&quot;Your password is ...&quot;, &quot;error&quot;) (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.054s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And the Secure Area page should NOT load</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Attempt login with invalid credentials, Variant 3] -->
+                            <pre class="log">done: AllSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.013s</td>
+                    </tr>
+            </table>
+	</body>
+</html>
+</a><div style='position: absolute; top:0px; right:10px; z-index: 1000; text-align: right; font-size: small; color: #FF5555'>
+Generated by an evaluation version of SpecRun.<br />
+This version can be used for evaluation purposes only.<br />
+For obtaining a registered license please visit <a href='http://www.specflow.org/plus'>http://www.specflow.org/plus</a>.
+</div>

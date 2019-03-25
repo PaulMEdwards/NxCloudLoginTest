@@ -1,0 +1,63 @@
+﻿2019-03-21T15:11:33.0182296-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T15:11:33.0222175-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T15:11:33.1578312-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T15:11:33.1578312-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T15:11:33.1578312-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T15:11:40.2175689-07:00;Thread#13;Info;starting test run
+2019-03-21T15:11:40.2235667-07:00;Thread#13;Info;Discovering target: Default
+2019-03-21T15:11:40.2235667-07:00;Thread#13;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#17: Login Form - 
+#20: Attempt login with invalid credentials, Variant 1 - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Attempt+login+with+invalid+credentials%2c+Variant+1
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #20 from normal test queue 
+Thread#0:Scheduler: considering testitem #20 for thread 0
+Thread#0:TestItem#20:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#20:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#20:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #20 for thread 0
+Thread#0:Scheduler: Test #20 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #20/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the login form
+Thread#0:T:done: LoginFormSteps.GivenIVisitTheLoginForm() (1.7s)
+Thread#0:B:And I input "Null" as username and "SuperSecretPassword!" as password
+Thread#0:T:done: LoginFormSteps.GivenIInputAsUsernameAndAsPassword("Null", "SuperSecretPassword!") (0.1s)
+Thread#0:B:When I click the Login button
+Thread#0:T:done: LoginFormSteps.WhenIClickTheLoginButton() (0.4s)
+Thread#0:B:Then the user should see "Your username is invalid!" indicating "error"
+Thread#0:T:done: LoginFormSteps.ThenTheUserShouldSeeIndicating("Your username is ...", "error") (0.1s)
+Thread#0:B:And the Secure Area page should NOT load
+Thread#0:T:done: LoginFormSteps.ThenTheSecureAreaPageShouldNOTLoad() (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #20/0 is finished on thread #0 as Succeeded within 21.4126006 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T15:12:02.0871313-07:00;Thread#13;Info;test run finished
+2019-03-21T15:12:02.0871313-07:00;Thread#13;Info;publishing test results
+2019-03-21T15:12:02.1090749-07:00;Thread#13;Info;test results published
+2019-03-21T15:12:02.1090749-07:00;Thread#13;Info;generating reports
+2019-03-21T15:12:02.1150575-07:00;Thread#13;Info;creating 1 report(s)
+2019-03-21T15:12:02.1150575-07:00;Thread#13;Info;generate Report ReportTemplate.cshtml
+2019-03-21T15:12:02.8944818-07:00;Thread#13;Info;reports generated
+Total: 1
+Succeeded: 1
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-21T15:12:02.8974741-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T15:12:02.8974741-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T151133.html'
+2019-03-21T15:12:02.9074475-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T151133.log

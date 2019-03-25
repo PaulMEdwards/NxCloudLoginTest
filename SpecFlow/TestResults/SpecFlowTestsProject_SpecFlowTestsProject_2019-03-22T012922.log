@@ -1,0 +1,49 @@
+﻿2019-03-22T01:29:22.4372789-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-22T01:29:22.4422646-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-22T01:29:22.6666653-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-22T01:29:22.6666653-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-22T01:29:22.6666653-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-22T01:29:33.7621549-07:00;Thread#14;Info;starting test run
+2019-03-22T01:29:33.7791440-07:00;Thread#14;Info;Discovering target: Default
+2019-03-22T01:29:33.7791440-07:00;Thread#14;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#5: Dynamic - 
+#8: Bug: lingering checkbox DIV(s) on multiple Remove/add operations - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Bug%3a+lingering+checkbox+DIV(s)+on+multiple+Remove%2fadd+operations
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #8 from normal test queue 
+Thread#0:Scheduler: considering testitem #8 for thread 0
+Thread#0:TestItem#8:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#8:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#8:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #8 for thread 0
+Thread#-1:Scheduler: Test #8 is scheduled for thread
+Thread#-1: Test #8/0 is started on thread #-1
+Thread#-1: Test #8/0 is finished on thread #-1 as Ignored within 0.000997 seconds
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-22T01:29:34.4533054-07:00;Thread#14;Info;test run finished
+2019-03-22T01:29:34.4543026-07:00;Thread#14;Info;publishing test results
+2019-03-22T01:29:34.5041695-07:00;Thread#14;Info;test results published
+2019-03-22T01:29:34.5041695-07:00;Thread#14;Info;generating reports
+2019-03-22T01:29:34.5101525-07:00;Thread#14;Info;creating 1 report(s)
+2019-03-22T01:29:34.5101525-07:00;Thread#14;Info;generate Report ReportTemplate.cshtml
+2019-03-22T01:29:35.3768348-07:00;Thread#14;Info;reports generated
+Total: 1
+Succeeded: 0
+Ignored: 1
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-22T01:29:35.3818618-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-22T01:29:35.3818618-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-22T012922.html'
+2019-03-22T01:29:35.3878081-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-22T012922.log

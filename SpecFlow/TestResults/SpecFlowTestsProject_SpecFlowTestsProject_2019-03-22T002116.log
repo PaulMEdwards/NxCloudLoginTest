@@ -1,0 +1,72 @@
+﻿2019-03-22T00:21:15.9799359-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-22T00:21:15.9859240-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-22T00:21:16.1464972-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-22T00:21:16.1464972-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-22T00:21:16.1464972-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-22T00:21:21.2052515-07:00;Thread#13;Info;starting test run
+2019-03-22T00:21:21.2112317-07:00;Thread#13;Info;Discovering target: Default
+2019-03-22T00:21:21.2121954-07:00;Thread#13;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#5: Dynamic - 
+#6: Remove and Add checkbox control - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Remove+and+Add+checkbox+control
+#7: Disable and Enable text input control - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Disable+and+Enable+text+input+control
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #6 from normal test queue 
+Thread#0:Scheduler: considering testitem #6 for thread 0
+Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #6 for thread 0
+Thread#0:Scheduler: Test #6 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #6/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.4s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (3.2s)
+Thread#0:B:And Confirm checkbox removal
+Thread#0:T:done: AllSteps.ThenConfirmCheckboxRemoval() (3.1s)
+Thread#0:B:When I click the "Add" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Add") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (0.3s)
+Thread#0:B:And Confirm checkbox added
+Thread#0:T:error: Expected d.Count to be 1, but found 0.
+Cancelling because configured number of failures reached
+Thread#0: Test #6/0 is finished on thread #0 as Failed within 18.0911923 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #7 from normal test queue 
+Thread#-1:Scheduler: considering testitem #7 for thread -1
+Thread#-1:Scheduler: using testitem #7 for thread -1
+Thread#-1:Scheduler: Test #7 is scheduled for thread
+Thread#-1: Test #7/0 is started on thread #-1
+Thread#-1: Test #7/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-22T00:21:39.7701627-07:00;Thread#13;Info;test run finished
+2019-03-22T00:21:39.7701627-07:00;Thread#13;Info;publishing test results
+2019-03-22T00:21:39.7930658-07:00;Thread#13;Info;test results published
+2019-03-22T00:21:39.7930658-07:00;Thread#13;Info;generating reports
+2019-03-22T00:21:39.8000871-07:00;Thread#13;Info;creating 1 report(s)
+2019-03-22T00:21:39.8000871-07:00;Thread#13;Info;generate Report ReportTemplate.cshtml
+2019-03-22T00:21:40.7295616-07:00;Thread#13;Info;reports generated
+Total: 2
+Succeeded: 0
+Ignored: 0
+Pending: 0
+Skipped: 1
+Failed: 1
+2019-03-22T00:21:40.7335499-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-22T00:21:40.7335499-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-22T002116.html'
+2019-03-22T00:21:40.7455192-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-22T002116.log

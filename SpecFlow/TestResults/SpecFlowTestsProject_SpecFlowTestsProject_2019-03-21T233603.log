@@ -1,0 +1,76 @@
+﻿2019-03-21T23:36:03.5881404-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T23:36:03.5931670-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T23:36:03.7417658-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T23:36:03.7417658-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T23:36:03.7417658-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T23:36:12.8016218-07:00;Thread#13;Info;starting test run
+2019-03-21T23:36:12.8076059-07:00;Thread#13;Info;Discovering target: Default
+2019-03-21T23:36:12.8076059-07:00;Thread#13;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#5: Dynamic - 
+#8: Bug: lingering checkbox DIV(s) on multiple Remove/add operations - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Bug%3a+lingering+checkbox+DIV(s)+on+multiple+Remove%2fadd+operations
+#9: Bug: loading animations not hidden if interacting with Checkbox Remove/add before Text Input Enable/disable - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Bug%3a+loading+animations+not+hidden+if+interacting+with+Checkbox+Remove%2fadd+before+Text+Input+Enable%2fdisable
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #8 from normal test queue 
+Thread#0:Scheduler: considering testitem #8 for thread 0
+Thread#0:TestItem#8:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#8:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#8:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #8 for thread 0
+Thread#0:Scheduler: Test #8 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #8/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.5s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (3.1s)
+Thread#0:B:And Confirm checkbox removal
+Thread#0:T:done: AllSteps.ThenConfirmCheckboxRemoval() (3.1s)
+Thread#0:B:When I click the "Add" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Add") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (3.1s)
+Thread#0:B:And Confirm checkbox added
+Thread#0:T:done: AllSteps.ThenConfirmCheckboxAdded() (0.0s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.1s)
+Thread#0:B:Then Confirm checkbox removal
+Thread#0:T:error: Expected c to be <null>, but found Element (id = 0.7279643030237415-7).
+Cancelling because configured number of failures reached
+Thread#0: Test #8/0 is finished on thread #0 as Failed within 18.0822319 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: testitem #9 from normal test queue 
+Thread#-1:Scheduler: considering testitem #9 for thread -1
+Thread#-1:Scheduler: using testitem #9 for thread -1
+Thread#-1:Scheduler: Test #9 is scheduled for thread
+Thread#-1: Test #9/0 is started on thread #-1
+Thread#-1: Test #9/0 is finished on thread #-1 as Skipped within 0 seconds
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T23:36:31.3725358-07:00;Thread#13;Info;test run finished
+2019-03-21T23:36:31.3735343-07:00;Thread#13;Info;publishing test results
+2019-03-21T23:36:31.3964704-07:00;Thread#13;Info;test results published
+2019-03-21T23:36:31.3964704-07:00;Thread#13;Info;generating reports
+2019-03-21T23:36:31.4024547-07:00;Thread#13;Info;creating 1 report(s)
+2019-03-21T23:36:31.4024547-07:00;Thread#13;Info;generate Report ReportTemplate.cshtml
+2019-03-21T23:36:32.1973718-07:00;Thread#13;Info;reports generated
+Total: 2
+Succeeded: 0
+Ignored: 0
+Pending: 0
+Skipped: 1
+Failed: 1
+2019-03-21T23:36:32.2003588-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T23:36:32.2003588-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T233603.html'
+2019-03-21T23:36:32.2082992-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T233603.log

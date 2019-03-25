@@ -1,0 +1,69 @@
+﻿2019-03-21T20:54:27.5867448-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T20:54:27.5927286-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T20:54:27.8500404-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T20:54:27.8500404-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T20:54:27.8500404-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T20:54:33.9756657-07:00;Thread#14;Info;starting test run
+2019-03-21T20:54:33.9946211-07:00;Thread#14;Info;Discovering target: Default
+2019-03-21T20:54:33.9946211-07:00;Thread#14;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#3: Geolocation - 
+#4: Geolocate explicitly blocked by user - TestAssembly:SpecFlowTestsProject/Feature:Geolocation/Scenario:Geolocate+explicitly+blocked+by+user
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #4 from normal test queue 
+Thread#0:Scheduler: considering testitem #4 for thread 0
+Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #4 for thread 0
+Thread#0:Scheduler: Test #4 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #4/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the Geolocation page
+Thread#0:T:done: AllSteps.GivenIVisitTheGeolocationPage() (2.2s)
+Thread#0:B:When I click the Where am I? button
+Thread#0:T:done: AllSteps.WhenIClickTheWhereAmIButton() (28.7s)
+Thread#0:B:And "Deny" geolocate request permission dialog
+Thread#0:T:pending: AllSteps.WhenGeolocateRequestPermissionDialog("Deny")
+Thread#0:B:Then Geolocate "is not" performed
+Thread#0:T:skipped because of previous errors
+Thread#0:B:When I click the Where am I? button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:Then Geolocate permission request is not presented
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And Geolocate "is not" performed
+Thread#0:T:skipped because of previous errors
+Thread#0:T:Pending: One or more step definitions are not implemented yet.
+Thread#0:T:  AllSteps.WhenGeolocateRequestPermissionDialog("Deny")
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #4/0 is finished on thread #0 as Pending within 102.7639538 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T20:56:17.6292414-07:00;Thread#14;Info;test run finished
+2019-03-21T20:56:17.6302376-07:00;Thread#14;Info;publishing test results
+2019-03-21T20:56:17.6930699-07:00;Thread#14;Info;test results published
+2019-03-21T20:56:17.6930699-07:00;Thread#14;Info;generating reports
+2019-03-21T20:56:17.7030443-07:00;Thread#14;Info;creating 1 report(s)
+2019-03-21T20:56:17.7030443-07:00;Thread#14;Info;generate Report ReportTemplate.cshtml
+2019-03-21T20:56:18.6136074-07:00;Thread#14;Info;reports generated
+Total: 1
+Succeeded: 0
+Ignored: 0
+Pending: 1
+Skipped: 0
+Failed: 0
+2019-03-21T20:56:18.6205904-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T20:56:18.6205904-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T205427.html'
+2019-03-21T20:56:18.6315615-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T205427.log

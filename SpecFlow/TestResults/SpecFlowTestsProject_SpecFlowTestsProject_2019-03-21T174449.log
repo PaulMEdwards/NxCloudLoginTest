@@ -1,0 +1,89 @@
+﻿2019-03-21T17:44:49.4094543-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T17:44:49.4144425-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T17:44:49.5640410-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T17:44:49.5640410-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T17:44:49.5640410-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T17:44:59.6293841-07:00;Thread#13;Info;starting test run
+2019-03-21T17:44:59.6343709-07:00;Thread#13;Info;Discovering target: Default
+2019-03-21T17:44:59.6343709-07:00;Thread#13;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#10: Alerts - 
+#15: Prompt, TestMonkey - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Prompt%2c+TestMonkey
+#16: Prompt, Infinite Monkeys on Infinite Keyboards - TestAssembly:SpecFlowTestsProject/Feature:Alerts/Scenario:Prompt%2c+Infinite+Monkeys+on+Infinite+Keyboards
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #15 from normal test queue 
+Thread#0:Scheduler: considering testitem #15 for thread 0
+Thread#0:TestItem#15:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#15:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#15:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #15 for thread 0
+Thread#0:Scheduler: Test #15 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #15/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (1.6s)
+Thread#0:B:When I click the "Prompt" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Prompt") (0.1s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS prompt" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS prompt") (0.0s)
+Thread#0:B:And I act upon alert by inputting text "TestMonkey"
+Thread#0:T:done: AllSteps.ThenIActUponAlertByInputtingText("TestMonkey") (0.0s)
+Thread#0:B:And I act upon alert by clicking "Cancel" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("Cancel") (0.0s)
+Thread#0:B:And I confirm Result message "You entered: null"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You entered: null") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #16 from normal test queue 
+Thread#0:Scheduler: considering testitem #16 for thread 0
+Thread#0:TestItem#16:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#16:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#16:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #16 for thread 0
+Thread#0:Scheduler: Test #16 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread#0: Test #15/0 is finished on thread #0 as Succeeded within 8.429724 seconds
+Thread#0: Test #16/0 is started on thread #0
+Thread#0:B:Given I visit the JavaScript example alerts page
+Thread#0:T:done: AllSteps.GivenIVisitTheAlertsPage() (1.5s)
+Thread#0:B:When I click the "Prompt" example button
+Thread#0:T:done: AllSteps.WhenIClickThePromptExampleButton("Prompt") (0.1s)
+Thread#0:B:Then I confirm Alert appears with "I am a JS prompt" text
+Thread#0:T:done: AllSteps.ThenIConfirmAlertAppearsWithText("I am a JS prompt") (0.0s)
+Thread#0:B:And I act upon alert by inputting text "Infinite Monkeys on Infinite Keyboards"
+Thread#0:T:done: AllSteps.ThenIActUponAlertByInputtingText("Infinite Monkeys ...") (0.0s)
+Thread#0:B:And I act upon alert by clicking "OK" button
+Thread#0:T:done: AllSteps.ThenIActUponAlertByClickingButton("OK") (0.0s)
+Thread#0:B:And I confirm Result message "You entered: Infinite Monkeys on Infinite Keyboards"
+Thread#0:T:done: AllSteps.ThenIConfirmResultMessage("You entered: Infi...") (0.0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #16/0 is finished on thread #0 as Succeeded within 7.8888797 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T17:45:16.4127015-07:00;Thread#13;Info;test run finished
+2019-03-21T17:45:16.4136988-07:00;Thread#13;Info;publishing test results
+2019-03-21T17:45:16.4426551-07:00;Thread#13;Info;test results published
+2019-03-21T17:45:16.4426551-07:00;Thread#13;Info;generating reports
+2019-03-21T17:45:16.4515969-07:00;Thread#13;Info;creating 1 report(s)
+2019-03-21T17:45:16.4515969-07:00;Thread#13;Info;generate Report ReportTemplate.cshtml
+2019-03-21T17:45:17.2474725-07:00;Thread#13;Info;reports generated
+Total: 2
+Succeeded: 2
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-21T17:45:17.2494624-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T17:45:17.2494624-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T174449.html'
+2019-03-21T17:45:17.2584379-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T174449.log

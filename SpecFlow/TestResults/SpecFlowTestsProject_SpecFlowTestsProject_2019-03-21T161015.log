@@ -1,0 +1,65 @@
+﻿2019-03-21T16:10:15.4690019-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T16:10:15.4739547-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T16:10:15.6225597-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T16:10:15.6225597-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T16:10:15.6225597-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T16:10:27.6832331-07:00;Thread#13;Info;starting test run
+2019-03-21T16:10:27.6892172-07:00;Thread#13;Info;Discovering target: Default
+2019-03-21T16:10:27.6892172-07:00;Thread#13;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#17: Login Form - 
+#18: Login with valid credentials - TestAssembly:SpecFlowTestsProject/Feature:Login+Form/Scenario:Login+with+valid+credentials
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #18 from normal test queue 
+Thread#0:Scheduler: considering testitem #18 for thread 0
+Thread#0:TestItem#18:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#18:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#18:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #18 for thread 0
+Thread#0:Scheduler: Test #18 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #18/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the login form
+Thread#0:T:done: AllSteps.GivenIVisitTheLoginForm() (1.4s)
+Thread#0:B:And I input "tomsmith" as username and "SuperSecretPassword!" as password
+Thread#0:T:done: AllSteps.GivenIInputAsUsernameAndAsPassword("tomsmith", "SuperSecretPassword!") (0.2s)
+Thread#0:B:When I click the Login button
+Thread#0:T:done: AllSteps.WhenIClickTheLoginButton() (0.4s)
+Thread#0:B:Then the Secure Area page should load without error
+Thread#0:T:done: AllSteps.ThenTheSecureAreaPageShouldLoadWithoutError() (0.0s)
+Thread#0:B:And the user should see "You logged into a secure area!" indicating "success"
+Thread#0:T:done: AllSteps.ThenTheUserShouldSeeIndicating("You logged into a...", "success") (0.1s)
+Thread#0:B:And the user can logout and return to the login form
+Thread#0:T:done: AllSteps.ThenTheUserCanLogoutAndReturnToTheLoginForm() (0.4s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #18/0 is finished on thread #0 as Succeeded within 9.3544186 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T16:10:37.5064511-07:00;Thread#13;Info;test run finished
+2019-03-21T16:10:37.5064511-07:00;Thread#13;Info;publishing test results
+2019-03-21T16:10:37.5283570-07:00;Thread#13;Info;test results published
+2019-03-21T16:10:37.5283570-07:00;Thread#13;Info;generating reports
+2019-03-21T16:10:37.5343403-07:00;Thread#13;Info;creating 1 report(s)
+2019-03-21T16:10:37.5353378-07:00;Thread#13;Info;generate Report ReportTemplate.cshtml
+2019-03-21T16:10:38.3222339-07:00;Thread#13;Info;reports generated
+Total: 1
+Succeeded: 1
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0
+2019-03-21T16:10:38.3252249-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T16:10:38.3252249-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T161015.html'
+2019-03-21T16:10:38.3342019-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T161015.log

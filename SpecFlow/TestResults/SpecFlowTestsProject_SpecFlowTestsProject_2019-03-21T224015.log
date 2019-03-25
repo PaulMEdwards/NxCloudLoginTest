@@ -1,0 +1,130 @@
+﻿2019-03-21T22:40:14.8607951-07:00;VSTestExecutionThread;Info;SpecFlow+Runner 1.8.5 execution started
+2019-03-21T22:40:14.8667820-07:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-03-21T22:40:15.0882199-07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-03-21T22:40:15.0882199-07:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+2019-03-21T22:40:15.0882199-07:00;VSTestExecutionThread;Info;Profile: SpecFlowTestsProject
+2019-03-21T22:40:28.2153482-07:00;Thread#14;Info;starting test run
+2019-03-21T22:40:28.2292748-07:00;Thread#14;Info;Discovering target: Default
+2019-03-21T22:40:28.2292748-07:00;Thread#14;Info;Discovering tests from assembly: C:\Users\paul\source\repos\AutomationTest\SpecFlow\SpecFlowTestsProject\bin\Debug\SpecFlowTestsProject.dll
+Appdomain Disposed
+Test Suite Dump
+#0: SpecFlowTestsProject/SpecFlowTestsProject - 
+#1: Default - 
+#2: SpecFlowTestsProject - 
+#5: Dynamic - 
+#6: Remove and Add checkbox control - TestAssembly:SpecFlowTestsProject/Feature:Dynamic/Scenario:Remove+and+Add+checkbox+control
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #6 from normal test queue 
+Thread#0:Scheduler: considering testitem #6 for thread 0
+Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #6 for thread 0
+Thread#0:Scheduler: Test #6 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for SpecFlowTestsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Thread#0: Test #6/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (2.1s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (29.7s)
+Thread#0:B:And Confirm checkbox removal
+Thread#0:T:error: Timed out after 3 seconds
+Thread#0:B:When I click the "Add" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And Confirm checkbox added
+Thread#0:T:skipped because of previous errors
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:Then Confirm checkbox removal
+Thread#0:T:skipped because of previous errors
+Thread#0:TestItem#6:Scheduler: reschedule tests for testitem #6
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: dequeuing a rescheduled testitem: #6
+Thread#0:Scheduler: considering testitem #6 for thread 0
+Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #6 for thread 0
+Thread#0:Scheduler: Test #6 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 1
+Thread#0: Test #6/0 is finished on thread #0 as Failed within 140.6070451 seconds
+Thread#0: Test #6/1 is started on thread #0
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.6s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (106.7s)
+Thread#0:B:And Confirm checkbox removal
+Thread#0:T:error: Timed out after 3 seconds
+Thread#0:B:When I click the "Add" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And Confirm checkbox added
+Thread#0:T:skipped because of previous errors
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:Then Confirm checkbox removal
+Thread#0:T:skipped because of previous errors
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: dequeuing a rescheduled testitem: #6
+Thread#0:Scheduler: considering testitem #6 for thread 0
+Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #6 for thread 0
+Thread#0:Scheduler: Test #6 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 2
+Thread#0: Test #6/1 is finished on thread #0 as Failed within 185.7652789 seconds
+Thread#0: Test #6/2 is started on thread #0
+Thread#0:B:Given I visit the Dynamic Controls example page
+Thread#0:T:done: AllSteps.GivenIVisitTheDynamicControlsPage() (1.4s)
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:done: AllSteps.WhenIClickTheButton("Remove") (0.1s)
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:done: AllSteps.ThenObserveLoadingAnimationShownThenHidden() (3.1s)
+Thread#0:B:And Confirm checkbox removal
+Thread#0:T:error: Timed out after 3 seconds
+Thread#0:B:When I click the "Add" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:Then Observe loading animation shown then hidden
+Thread#0:T:skipped because of previous errors
+Thread#0:B:And Confirm checkbox added
+Thread#0:T:skipped because of previous errors
+Thread#0:B:When I click the "Remove" button
+Thread#0:T:skipped because of previous errors
+Thread#0:B:Then Confirm checkbox removal
+Thread#0:T:skipped because of previous errors
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #6/2 is finished on thread #0 as Failed within 19.5916946 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+2019-03-21T22:46:14.9632145-07:00;Thread#14;Info;test run finished
+2019-03-21T22:46:14.9632145-07:00;Thread#14;Info;publishing test results
+2019-03-21T22:46:15.0140678-07:00;Thread#14;Info;test results published
+2019-03-21T22:46:15.0140678-07:00;Thread#14;Info;generating reports
+2019-03-21T22:46:15.0220486-07:00;Thread#14;Info;creating 1 report(s)
+2019-03-21T22:46:15.0220486-07:00;Thread#14;Info;generate Report ReportTemplate.cshtml
+2019-03-21T22:46:15.9331576-07:00;Thread#14;Info;reports generated
+Total: 1 (test executions: 3)
+Succeeded: 0
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 1
+2019-03-21T22:46:15.9391431-07:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-03-21T22:46:15.9391431-07:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T224015.html'
+2019-03-21T22:46:15.9481178-07:00;VSTestExecutionThread;Info;Log file: file:///C:\Users\paul\source\repos\AutomationTest\SpecFlow\TestResults\SpecFlowTestsProject_SpecFlowTestsProject_2019-03-21T224015.log
